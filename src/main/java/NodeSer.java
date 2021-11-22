@@ -47,6 +47,14 @@ public class NodeSer {
 		return re;
 	}
 
+	public static void enToString(int[] nums) {
+		System.err.println(JSONUtil.toJsonStr(nums));
+	}
+
+	public static void enToString(ListNode nums) {
+		System.err.println(JSONUtil.toJsonStr(enSer(nums)));
+	}
+
 	public static void main(String[] args) {
 		int[] nums;
 		nums = new int[]{1,2,3,4,5,6,7,8};
