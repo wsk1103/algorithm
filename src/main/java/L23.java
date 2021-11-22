@@ -118,16 +118,22 @@ public class L23 {
 				fast = fast.next;
 			}
 		}
-		while (fast != null) {
+		if (fast != null) {
 			temp.next = fast;
-			temp = temp.next;
-			fast = fast.next;
 		}
-		while (slow != null) {
+		if (slow != null) {
 			temp.next = slow;
-			temp = temp.next;
-			slow = slow.next;
 		}
+//		while (fast != null) {
+//			temp.next = fast;
+//			temp = temp.next;
+//			fast = fast.next;
+//		}
+//		while (slow != null) {
+//			temp.next = slow;
+//			temp = temp.next;
+//			slow = slow.next;
+//		}
 		return re;
 	}
 
