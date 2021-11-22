@@ -70,12 +70,106 @@ public class L148 {
 		return first;
 	}
 
+	/**
+	 * 归并排序
+	 * @param head
+	 * @return
+	 */
+	public static ListNode mergeSort(ListNode head) {
+		if (head == null || head.next == null) {
+			return head;
+		}
+		ListNode fast = head, slow = head;
+		while (fast.next != null && fast.next.next != null) {
+			fast = fast.next.next;
+			slow = slow.next;
+		}
+
+		fast = slow;
+		slow = slow.next;
+		fast.next = null;
+
+		fast = mergeSort(head);
+		slow = mergeSort(slow);
+		return merge(fast, slow);
+	}
+
+	public static ListNode merge(ListNode fast, ListNode slow) {
+		if (fast == null) {
+			return slow;
+		}
+		if (slow == null) {
+			return fast;
+		}
+		ListNode re = null;
+		ListNode temp = null;
+		while (fast != null && slow != null) {
+			if (fast.val > slow.val) {
+				if (re == null) {
+					re = slow;
+					temp = re;
+				} else {
+					temp.next = slow;
+					temp = temp.next;
+				}
+				slow = slow.next;
+			} else {
+				if (re == null) {
+					re = fast;
+					temp = re;
+				} else {
+					temp.next = fast;
+					temp = temp.next;
+				}
+				fast = fast.next;
+			}
+		}
+
+		while (fast != null) {
+			temp.next = fast;
+			temp = temp.next;
+			fast = fast.next;
+		}
+
+		while (slow != null) {
+			temp.next = slow;
+			temp = temp.next;
+			slow = slow.next;
+		}
+
+		return re;
+	}
+
 	public static void main(String[] args) {
 		int[] nums;
 		nums = new int[]{5,3,4,8,2,4,1,7,8,6,2};
 		ListNode node = NodeSer.ser(nums);
 		ListNode to = handle(node);
+		System.err.println(JSONUtil.toJsonStr(NodeSer.enSer(to)));
 
+		nums = new int[]{5,3,4,8,2,4,1,7,8,6,2};
+		node = NodeSer.ser(nums);
+		to = mergeSort(node);
+		System.err.println(JSONUtil.toJsonStr(NodeSer.enSer(to)));
+
+		nums = new int[]{1};
+		node = NodeSer.ser(nums);
+		to = mergeSort(node);
+		System.err.println(JSONUtil.toJsonStr(NodeSer.enSer(to)));
+
+		nums = new int[]{};
+		node = NodeSer.ser(nums);
+		to = mergeSort(node);
+		System.err.println(JSONUtil.toJsonStr(NodeSer.enSer(to)));
+
+		nums = new int[]{2,1};
+		node = NodeSer.ser(nums);
+		to = mergeSort(node);
+		System.err.println(JSONUtil.toJsonStr(NodeSer.enSer(to)));
+
+		nums = new int[]{3,2,1};
+		node = NodeSer.ser(nums);
+		to = mergeSort(node);
 		System.err.println(JSONUtil.toJsonStr(NodeSer.enSer(to)));
 	}
 
