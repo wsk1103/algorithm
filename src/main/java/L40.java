@@ -42,11 +42,11 @@ public class L40 {
 	 * 1 <= candidates[i] <= 50
 	 * 1 <= target <= 30
 	 */
-	static List<List<Integer>> to = new ArrayList<>();
-	static LinkedList<Integer> path = new LinkedList<>();
-	static Map<Integer, Integer> map = new HashMap<>();
+	List<List<Integer>> to = new ArrayList<>();
+	LinkedList<Integer> path = new LinkedList<>();
+	Map<Integer, Integer> map = new HashMap<>();
 
-	public static List<List<Integer>> handle(int[] candidates, int target) {
+	public List<List<Integer>> handle(int[] candidates, int target) {
 		if (candidates == null || candidates.length < 1) {
 			return new ArrayList<>();
 		}
@@ -62,7 +62,7 @@ public class L40 {
 	}
 
 
-	public static void hh(List<Integer> nums, int cur, int target) {
+	public void hh(List<Integer> nums, int cur, int target) {
 		if (target < 0) {
 			return;
 		}
@@ -92,17 +92,21 @@ public class L40 {
 	}
 
 	public static void main(String[] args) {
+		L40 l40;
 		int[] nums;
 		int target;
 		nums = new int[]{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
 		target = 30;
-		System.err.println(JSON.toJSONString(handle(nums, target)));
+		l40 = new L40();
+		System.err.println(JSON.toJSONString(l40.handle(nums, target)));
 
 		nums = new int[]{10, 1, 2, 7, 6, 1, 5};
 		target = 8;
-		System.err.println(JSON.toJSONString(handle(nums, target)));
+		l40 = new L40();
+		System.err.println(JSON.toJSONString(l40.handle(nums, target)));
 		nums = new int[]{3,1,3,5,1,1};
 		target = 8;
-		System.err.println(JSON.toJSONString(handle(nums, target)));
+		l40 = new L40();
+		System.err.println(JSON.toJSONString(l40.handle(nums, target)));
 	}
 }
