@@ -34,6 +34,9 @@ public class L198 {
 	 */
 
 	public static int handle(int[] nums) {
+		//f(0) = num[0]
+		//f(1) = max(num[0],num[1])
+		//f(n) = max(f(n-1), f(n-2) + num[n])
 		if (nums.length == 1) {
 			return nums[0];
 		}
