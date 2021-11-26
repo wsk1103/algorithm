@@ -46,9 +46,6 @@ public class L132 {
 	 * 如果g[0][i]为真，[0,i]是回文串，不用再分割，f[i] = 0；
 	 * 否则循环选择[j,i]是回文串且f[i], f[j] + 1中分割次数最少的
 	 *
-	 * 2.
-	 * dp[j] = min(dp[j], dp[i] + 1)， 其中 dp[i] 表示将字符串 s[0:i] 分割成若干回文串的最小分割次数。
-	 * 那么答案自然就是 dp[n-1]。base case 为 dp[0] = 0，其他初始化为无穷大即可
 	 * @param s
 	 * @return
 	 */
@@ -103,6 +100,23 @@ public class L132 {
 		return to[n - 1];
 	}
 
+	public static int handle3(String s) {
+		int n = s.length();
+		int[] to = new int[n];
+		boolean[][] dp = new boolean[n][n];
+		for (int i = 0; i < n; i++) {
+			int min = i;
+			for (int j = 0; j <= i; j++) {
+				if (s.charAt(i) == s.charAt(j) && (j + 1 > i - 1 || dp[j + 1][i - 1])) {
+					dp[j][i] = true;
+					min = j == 0 ? 0 : Math.min(min, to[j - 1] + 1);
+				}
+			}
+			to[i] = min;
+		}
+		return to[n - 1];
+	}
+
 	public static int cut(String s, int start, int end) {
 		while (start < end) {
 			if (is(s, start, end)) {
@@ -127,22 +141,22 @@ public class L132 {
 	public static void main(String[] args) {
 		String s;
 		s = "abc";
-		System.err.println(handle2(s));
+		System.err.println(handle3(s));
 		s = "abcba";
-		System.err.println(handle2(s));
+		System.err.println(handle3(s));
 		s = "aab";
-		System.err.println(handle2(s));
+		System.err.println(handle3(s));
 		s = "ab";
-		System.err.println(handle2(s));
+		System.err.println(handle3(s));
 		s = "abb";
-		System.err.println(handle2(s));
+		System.err.println(handle3(s));
 		s = "a";
-		System.err.println(handle2(s));
+		System.err.println(handle3(s));
 		s = "google";
-		System.err.println(handle2(s));
+		System.err.println(handle3(s));
 		s = RandomStringUtils.randomAlphabetic(1000).toLowerCase();
 		System.err.println(s);
-		System.err.println(handle2(s));
+		System.err.println(handle3(s));
 	}
 
 }
