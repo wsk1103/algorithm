@@ -37,6 +37,7 @@ public class L494 {
 	 * 0 <= nums[i] <= 1000
 	 * 0 <= sum(nums[i]) <= 1000
 	 * -1000 <= target <= 1000
+	 * dp or 01 背包
 	 */
 	public static int handle(int[] nums, int target) {
 		int to = add(nums, 0, 0, 0, target, 0, 0);
