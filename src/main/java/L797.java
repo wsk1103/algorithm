@@ -60,6 +60,7 @@ public class L797 {
      * graph[i][j] != i
      * 保证输入为有向无环图 (GAD)
      */
+
     public static List<List<Integer>> handle(int[][] graph) {
         List<List<Integer>> to = new ArrayList<>();
         LinkedList<Integer> path = new LinkedList<>();
