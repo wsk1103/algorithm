@@ -55,6 +55,7 @@ public class L210 {
      */
     public static int[] handle(int numCourses, int[][] prerequisites) {
         List<List<Integer>> adj = new ArrayList<>();
+        //0 = 未选择，1=选择中，2=已完成
         int[] ind = new int[numCourses];
         for (int i = 0; i < numCourses; i++) {
             adj.add(new ArrayList<>());
