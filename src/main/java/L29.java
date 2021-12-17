@@ -87,11 +87,73 @@ public class L29 {
         return (int)ll;
     }
 
+    public static long add(long a, long b) {
+        long carry;
+        while (b != 0) {
+            carry = (a & b) << 1;
+            a = a ^ b;
+            b = carry;
+        }
+        return a;
+    }
+
+    public static long sub(long a, long b) {
+        b = ~b + 1;
+        return add(a, b);
+    }
+
+    public static long mul(long a, long b) {
+        long i = 0;
+        long res = 0;
+        while (b != 0) {
+            if ((b & 1) == 1) {
+                res += (a << i);
+            }
+            b = b >> 1;
+            i++;
+        }
+        return res;
+    }
+
+    public static long div(long a, long b) {
+        long res;
+        if (a < b) {
+            return 0;
+        } else {
+            res = div(sub(a, b), b) + 1;
+        }
+        return res;
+    }
+
+//    public static long div2(long a, long b) {
+//        if (a < b) {
+//            return 0;
+//        }
+//    }
+
+    public static int handle3(int dividend, int divisor) {
+        boolean t = (dividend <= 0 || divisor >= 0) && (dividend >= 0 || divisor <= 0);
+        long to;
+        if (divisor == 1) {
+            to = dividend;
+        } else if (divisor == -1) {
+            to = -dividend;
+        } else {
+            to = div(dividend, divisor);
+        }
+        if (to > Integer.MAX_VALUE) {
+            return t ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+        } else if (to < Integer.MIN_VALUE) {
+            return t ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+        }
+        return t ? (int) to : -(int) to;
+    }
+
     public static void main(String[] args) {
         int a, b;
         a = -2147483648;
         b = -2147483648;
-        System.err.println(handle2(a, b));
+        System.err.println(handle3(a, b));
         a = -2147483648;
         b = 1;
         System.err.println(handle2(a, b));
