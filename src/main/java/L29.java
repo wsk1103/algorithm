@@ -75,11 +75,26 @@ public class L29 {
         return t ? (int) to : -(int) to;
     }
 
+    public static int handle2(int dividend, int divisor) {
+        long a = dividend;
+        long b = divisor;
+        long ll = a / b;
+        if (ll > Integer.MAX_VALUE) {
+            return Integer.MAX_VALUE;
+        } else if (ll < Integer.MIN_VALUE) {
+            return Integer.MIN_VALUE;
+        }
+        return (int)ll;
+    }
+
     public static void main(String[] args) {
         int a, b;
         a = -2147483648;
         b = -2147483648;
-        System.err.println(handle(a, b));
+        System.err.println(handle2(a, b));
+        a = -2147483648;
+        b = 1;
+        System.err.println(handle2(a, b));
 
         a = -5;
         b = 2;
