@@ -11,7 +11,7 @@ import java.util.List;
  **/
 public class L15 {
 
-    /**
+    /*
      * 给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a ，b ，c ，使得 a + b + c = 0 ？请找出所有和为 0 且 不重复 的三元组。
      * <p>
      * <p>
@@ -47,9 +47,6 @@ public class L15 {
             }
             int left = i + 1;
             int right = arr.length - 1;
-//            if (left >= right) {
-//                break;
-//            }
             int temp = target - arr[i];
             while (left < right) {
                 if (arr[left] + arr[right] == temp) {
@@ -63,11 +60,6 @@ public class L15 {
                     }
                     left++;
                     right--;
-//                    if (arr[left] == arr[left + 1]) {
-//                        left++;
-//                    } else {
-//                        right++;
-//                    }
                 } else if (arr[left] + arr[right] > temp) {
                     right--;
                 } else {
@@ -94,13 +86,9 @@ public class L15 {
             }
             int left = i + 1;
             int right = nums.length - 1;
-//            if (left >= right) {
-//                break;
-//            }
-            int temp = 0 - nums[i];
+            int temp = -nums[i];
             while (left < right) {
                 if (nums[left] + nums[right] == temp) {
-//                    Integer[] ints = new Integer[]{nums[i], nums[left], nums[right]};
                     List<Integer> ints = new ArrayList<>();
                     ints.add(nums[i]);
                     ints.add(nums[left]);
@@ -114,11 +102,6 @@ public class L15 {
                     }
                     left++;
                     right--;
-//                    if (arr[left] == arr[left + 1]) {
-//                        left++;
-//                    } else {
-//                        right++;
-//                    }
                 } else if (nums[left] + nums[right] > temp) {
                     right--;
                 } else {
