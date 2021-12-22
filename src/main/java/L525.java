@@ -8,7 +8,7 @@ import java.util.Map;
  **/
 public class L525 {
 
-    /**
+    /*
      * 给定一个二进制数组 nums , 找到含有相同数量的 0 和 1 的最长连续子数组，并返回该子数组的长度。
      * <p>
      * <p>
@@ -29,6 +29,7 @@ public class L525 {
      * <p>
      * 1 <= nums.length <= 10 ^ 5
      * nums[i] 不是 0 就是 1
+     * Related Topics 数组 哈希表 前缀和 👍 493 👎 0
      */
 
     public static int handle(int[] nums) {
@@ -36,6 +37,7 @@ public class L525 {
 
         int sum = 0;
         Map<Integer, Integer> map = new HashMap<>();
+        // -1 的目的 在i-map.get(sum)中，相当于+1，也就是下标差+1
         map.put(0, -1);
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == 0) {
@@ -63,8 +65,8 @@ public class L525 {
 //        nu = new int[]{0,1,0};
 //        System.err.println(handle(nu));
 
-        nu = new int[]{0,0,0,0,0,1};
-        System.err.println(handle(nu));
+//        nu = new int[]{0,0,0,0,0,1};
+//        System.err.println(handle(nu));
 
         nu = new int[]{0,1,0, 0, 1, 0};
         System.err.println(handle(nu));

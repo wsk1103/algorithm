@@ -5,7 +5,7 @@
  **/
 public class L713 {
 
-    /**
+    /*
      * 给定一个正整数数组 nums和整数 k ，请找出该数组内乘积小于 k 的连续的子数组的个数。
      * <p>
      * <p>
@@ -40,6 +40,13 @@ public class L713 {
         return sum;
     }
 
+    /**
+     * 1 2 3 4 5 ,k=24
+     * 1
+     * 2,12
+     * 3,123,23
+     * 4,1234,234,34
+     */
     public static int handle2(int[] nums, int target) {
         if (target < 2) {
             return 0;
