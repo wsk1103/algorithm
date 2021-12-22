@@ -10,7 +10,7 @@ import java.util.List;
  **/
 public class L438 {
 
-    /**
+    /*
      * 给定两个字符串 s 和 p，找到 s 中所有 p 的 变位词 的子串，返回这些子串的起始索引。不考虑答案输出的顺序。
      * <p>
      * 变位词 指字母相同，但排列不同的字符串。
@@ -38,6 +38,7 @@ public class L438 {
      * <p>
      * 1 <= s.length, p.length <= 3 * 104
      * s 和 p 仅包含小写字母
+     * 滑动模块(双指针)
      */
 
     public static List<Integer> handle(String s, String p) {
@@ -75,15 +76,54 @@ public class L438 {
         return to;
     }
 
+    public static List<Integer> handle2(String s, String p) {
+        int l1 = s.length();
+        int l2 = p.length();
+        List<Integer> to = new ArrayList<>();
+        if (l2 > l1) {
+            return to;
+        }
+        int count = l2;
+        int left = 0;
+        int right = 0;
+        int[] arr = new int[26];
+        for (int i = 0; i < l2; i++) {
+            char c = p.charAt(i);
+            int temp = c - 'a';
+            arr[temp] = arr[temp] + 1;
+        }
+        while (right < l1) {
+            char c = s.charAt(right++);
+            int temp = c - 'a';
+            if (arr[temp]-- >= 1) {
+                count--;
+            }
+            if (count == 0) {
+                to.add(left);
+            }
+            char lc = s.charAt(left);
+            temp = lc - 'a';
+            if ((right - left) == l2) {
+                left++;
+                if (arr[temp]++ >= 0) {
+                    count++;
+                }
+            }
+        }
+        return to;
+    }
+
     public static void main(String[] args) {
         String s, p;
         s = "cbaebabacd";
         p = "abc";
         System.err.println(JSON.toJSONString(handle(s, p)));
+        System.err.println(JSON.toJSONString(handle2(s, p)));
 
         s = "abab";
         p = "ab";
         System.err.println(JSON.toJSONString(handle(s, p)));
+        System.err.println(JSON.toJSONString(handle2(s, p)));
     }
 
 }

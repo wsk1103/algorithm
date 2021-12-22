@@ -108,6 +108,42 @@ public class L567 {
         return false;
     }
 
+    public static boolean handle3(String s1, String s2) {
+        int l1 = s1.length();
+        int l2 = s2.length();
+        if (l1 > l2) {
+            return false;
+        }
+        int count = l1;
+        int[] arr = new int[26];
+        for (int i = 0; i < l1; i++) {
+            char c = s1.charAt(i);
+            int temp = c - 'a';
+            arr[temp]++;
+        }
+        int left = 0;
+        int right = 0;
+        while (right < l2) {
+            char c = s2.charAt(right++);
+            int temp = c - 'a';
+            if (arr[temp]-- >= 1) {
+                count--;
+            }
+            if (count == 0) {
+                return true;
+            }
+            char lc = s2.charAt(left);
+            temp = lc - 'a';
+            if (right - left == l1) {
+                left++;
+                if (arr[temp]++ >= 0) {
+                    count++;
+                }
+            }
+        }
+        return false;
+    }
+
     private static boolean sum(Map<Character, Integer> map) {
         for (Integer set : map.values()) {
             if (set != 0) {
@@ -123,37 +159,48 @@ public class L567 {
         String s2 = "eidbaooo";
         System.err.println(handle(s1, s2));
         System.err.println(handle2(s1, s2));
+        System.err.println(handle3(s1, s2));
 
         s2 = "eidboaoo";
         System.err.println(handle(s1, s2));
         System.err.println(handle2(s1, s2));
+        System.err.println(handle3(s1, s2));
 
         s1 = "a";
         s2 = "eidboaoo";
         System.err.println(handle(s1, s2));
         System.err.println(handle2(s1, s2));
+        System.err.println(handle3(s1, s2));
+
         s1 = "adc";
         s2 = "dcda";
         System.err.println(handle(s1, s2));
         System.err.println(handle2(s1, s2));
+        System.err.println(handle3(s1, s2));
 
         s1 = "o";
         s2 = "eidboaoo";
         System.err.println(handle(s1, s2));
         System.err.println(handle2(s1, s2));
+        System.err.println(handle3(s1, s2));
 
         s1 = "abc";
         s2 = "ccccbbbbaaaa";
         System.err.println(handle(s1, s2));
         System.err.println(handle2(s1, s2));
+        System.err.println(handle3(s1, s2));
+
         s1 = "dbb";
         s2 = "ccc";
         System.err.println(handle(s1, s2));
         System.err.println(handle2(s1, s2));
+        System.err.println(handle3(s1, s2));
+
         s1 = "hello";
         s2 = "ooolleoooleh";
         System.err.println(handle(s1, s2));
         System.err.println(handle2(s1, s2));
+        System.err.println(handle3(s1, s2));
     }
 
 }
