@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author sk
  * @time 2021/10/20
@@ -5,7 +8,7 @@
  **/
 public class L567 {
 
-    /**
+    /*
      * 给定两个字符串 s1 和 s2，写一个函数来判断 s2 是否包含 s1 的某个变位词。
      * <p>
      * 换句话说，第一个字符串的排列之一是第二个字符串的 子串 。
@@ -30,9 +33,11 @@ public class L567 {
      *
      * 其实我们并不需要生成字符串的所有排列，只需要将第一个字符串的各个字符及其个数用map存起来，然后在第二个字符串中取与s1等长的字符串，
      * 也用map存起来，然后对比两个map中相同的字符，它的个数是否相同，如果相同的话，就能说明第一个字符串的排列之一是第二个字符串的子串
+     * //滑动窗口 + map
      */
 
     public static boolean handle(String s1, String s2) {
+        System.err.println();
         int fei1 = 0;
         int sum = 0;
         for (char c : s1.toCharArray()) {
@@ -40,7 +45,6 @@ public class L567 {
             fei1 |= temp;
             sum += temp;
         }
-//        System.err.println(Integer.toBinaryString(sum));
 
         char[] c2 = s2.toCharArray();
         for (int i = 0; i <= s2.length() - s1.length(); i++) {
@@ -51,38 +55,66 @@ public class L567 {
                 fei2 |= temp;
                 sum2 += temp;
             }
-//            System.err.println(Integer.toBinaryString(sum2));
             if (fei1 == fei2 && sum == sum2) {
                 return true;
             }
         }
         return false;
-//        int left = 0;
-//        int right = 0;
-//        int sum2 = 0;
-//        while (left <= s2.length() - s1.length()) {
-//            int temp = 1 << (s2.charAt(right) - 'a');
-//            sum2 |= temp;
-//            System.err.println(Integer.toBinaryString(sum2));
-//            if (right - left == s1.length() - 1) {
-//                if (sum2 == sum) {
-//                    return true;
-//                } else {
-//                    temp = 1 << (s2.charAt(left) - 'a');
-//                    if ((sum2 & temp) > 0) {
-//                        left++;
-//                        System.err.println(Integer.toBinaryString(sum2));
-//                        System.err.println(Integer.toBinaryString(temp));
-//                    } else {
-//                        sum2 ^= temp;
-//                        System.err.println(Integer.toBinaryString(sum2));
-//                        left++;
-//                    }
-//                }
-//            }
-//            right++;
-//        }
-//        return false;
+    }
+
+    public static boolean handle2(String s1, String s2) {
+        int l1 = s1.length();
+        int l2 = s2.length();
+        if (l1 > l2) {
+            return false;
+        }
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < l1; i++) {
+            char c = s1.charAt(i);
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+        int l = 0;
+        int r = 0;
+        while (l <= r && l < l2 && r < l2) {
+            char c = s2.charAt(r);
+            if (map.containsKey(c)) {
+                int i = map.get(c);
+                map.put(c, i - 1);
+                if (sum(map)) {
+                    return true;
+                }
+                if (r - l >= l1 - 1) {
+                    char lc = s2.charAt(l);
+                    if (map.containsKey(lc)) {
+                        map.put(lc, map.get(lc) + 1);
+                    }
+                    r++;
+                    l++;
+                } else {
+                    r++;
+                }
+            } else {
+                for (int i = l; i < r; i++) {
+                    char lc = s2.charAt(i);
+                    if (map.containsKey(lc)) {
+                        map.put(lc, map.get(lc) + 1);
+                    }
+                }
+                r++;
+                l = r;
+            }
+
+        }
+        return false;
+    }
+
+    private static boolean sum(Map<Character, Integer> map) {
+        for (Integer set : map.values()) {
+            if (set != 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
 
@@ -90,26 +122,38 @@ public class L567 {
         String s1 = "ab";
         String s2 = "eidbaooo";
         System.err.println(handle(s1, s2));
+        System.err.println(handle2(s1, s2));
+
         s2 = "eidboaoo";
         System.err.println(handle(s1, s2));
+        System.err.println(handle2(s1, s2));
 
         s1 = "a";
         s2 = "eidboaoo";
         System.err.println(handle(s1, s2));
+        System.err.println(handle2(s1, s2));
+        s1 = "adc";
+        s2 = "dcda";
+        System.err.println(handle(s1, s2));
+        System.err.println(handle2(s1, s2));
 
         s1 = "o";
         s2 = "eidboaoo";
         System.err.println(handle(s1, s2));
+        System.err.println(handle2(s1, s2));
 
         s1 = "abc";
         s2 = "ccccbbbbaaaa";
         System.err.println(handle(s1, s2));
+        System.err.println(handle2(s1, s2));
         s1 = "dbb";
         s2 = "ccc";
         System.err.println(handle(s1, s2));
+        System.err.println(handle2(s1, s2));
         s1 = "hello";
         s2 = "ooolleoooleh";
         System.err.println(handle(s1, s2));
+        System.err.println(handle2(s1, s2));
     }
 
 }
