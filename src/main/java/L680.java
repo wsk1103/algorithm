@@ -5,7 +5,7 @@
  **/
 public class L680 {
 
-    /**
+    /*
      * 给定一个非空字符串 s，请判断如果 最多 从字符串中删除一个字符能否得到一个回文字符串。
      * <p>
      * <p>
@@ -29,6 +29,7 @@ public class L680 {
      * <p>
      * 1 <= s.length <= 105
      * s 由小写英文字母组成
+     * 双指针
      */
 
     public static boolean handle(String s) {
@@ -94,7 +95,6 @@ public class L680 {
     public static boolean ii(String s, int left, int right) {
         while (left <= right) {
             if (s.charAt(left) != s.charAt(right)) {
-
                 return false;
             }
             left++;
