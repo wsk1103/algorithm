@@ -8,7 +8,7 @@ import java.util.Map;
  **/
 public class L76 {
 
-    /**
+    /*
      * 给定两个字符串 s 和 t 。返回 s 中包含 t 的所有字符的最短子字符串。如果 s 中不存在符合条件的子字符串，则返回空字符串 "" 。
      * <p>
      * 如果 s 中存在多个符合条件的子字符串，返回任意一个。
@@ -42,6 +42,7 @@ public class L76 {
      * <p>
      * <p>
      * 进阶：你能设计一个在 o(n) 时间内解决此问题的算法吗？
+     * 双指针 + hashmap
      */
 
 
@@ -92,39 +93,6 @@ public class L76 {
                     left++;
                 }
             }
-
-
-//            if (sm.isEmpty()) {
-//                Character temp = s.charAt(left);
-//                if (tm.containsKey(s.charAt(left))) {
-//                    sm.put(temp, 1);
-//                }
-//                if (right > left || min.length() == 0) {
-//                    min = s.substring(left, right);
-//                }
-//                left++;
-//                while (!sm.containsKey(s.charAt(left)) && left < right) {
-//                    left++;
-//                }
-//            } else {
-//                if (sm.containsKey(s.charAt(right))) {
-//                    int temp = sm.get(s.charAt(right));
-//                    temp--;
-//                    if (temp <= 0) {
-//                        sm.remove(s.charAt(right));
-//                    } else {
-//                        sm.put(s.charAt(right), temp);
-//                    }
-//                    right++;
-//                } else {
-//                    if (left == right) {
-//                        left++;
-//                        right++;
-//                    } else {
-//                        right++;
-//                    }
-//                }
-//            }
         }
 
         return min;
