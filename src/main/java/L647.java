@@ -33,6 +33,7 @@ public class L647 {
      *
      * 1 <= s.length <= 1000
      * s 由小写英文字母组成
+     * 双指针 + 中心扩展
      */
 
     // abccba  aaaaaaa
@@ -83,7 +84,7 @@ public class L647 {
         return false;
     }
 
-    //TODO 2.中心拓展
+    //中心拓展
     public static int handle2(String s) {
         int to = 0;
         for (int i = 0; i < s.length(); i++) {
