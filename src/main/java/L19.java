@@ -7,17 +7,7 @@ import java.util.List;
  * @desc say
  **/
 public class L19 {
-    /**
-     * Definition for singly-linked list.
-     * public class ListNode {
-     *     int val;
-     *     ListNode next;
-     *     ListNode() {}
-     *     ListNode(int val) { this.val = val; }
-     *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-     * }
-     */
-    /**
+    /*
      * 给定一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
      * <p>
      * <p>
@@ -72,7 +62,7 @@ public class L19 {
             head = cur.next;
         } else if (pre != null && cur != null) {
             pre.next = cur.next;
-        } else if (pre != null && cur == null) {
+        } else if (pre != null) {
             pre.next = cur;
         }
         return head;

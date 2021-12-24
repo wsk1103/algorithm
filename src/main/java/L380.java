@@ -7,7 +7,7 @@ import java.util.*;
  **/
 public class L380 {
 
-    /**
+    /*
      * 设计一个支持在平均 时间复杂度 O(1) 下，执行以下操作的数据结构：
      *
      * insert(val)：当元素 val 不存在时返回 true ，并向集合中插入该项，否则返回 false 。

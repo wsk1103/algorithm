@@ -9,7 +9,7 @@ import java.util.Stack;
  **/
 public class L206 {
 
-    /**
+    /*
      * 给定单链表的头节点 head ，请反转链表，并返回反转后的链表的头节点。
      * <p>
      * <p>

@@ -5,8 +5,7 @@
  **/
 public class L160 {
 
-    /**
-     * 题目描述
+    /*
      * 给定两个单链表的头节点 headA 和 headB ，请找出并返回两个单链表相交的起始节点。如果两个链表没有交点，返回 null 。
      * <p>
      * 图示两个链表在节点 c1 开始相交：
@@ -74,14 +73,6 @@ public class L160 {
             a = a == null ? headB : a.next;
             b = b == null ? headA : b.next;
         }
-//        while (a != null && b != null) {
-//            a = a.next;
-//            b = b.next;
-//            while (a != b) {
-//                a = a.next == null ? headB : a.next;
-//                b = b.next == null ? headA : b.next;
-//            }
-//        }
         return a;
     }
 

@@ -9,7 +9,7 @@ import java.util.Map;
  **/
 public class L242 {
 
-	/**
+	/*
 	 * 给定两个字符串 s 和 t ，编写一个函数来判断它们是不是一组变位词（字母异位词）。
 	 * <p>
 	 * 注意：若 s 和 t 中每个字符出现的次数都相同，则称 s 和 t 互为字母异位词。
@@ -37,6 +37,9 @@ public class L242 {
 	 * <p>
 	 * <p>
 	 * 进阶: 如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？
+	 * 1. 排序后一一比较
+	 *
+	 * 2. map
 	 */
 
 	public static boolean handle(String s, String t) {
