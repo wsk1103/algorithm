@@ -49,6 +49,7 @@ public class L146 {
 	 *
 	 *
 	 * 进阶：是否可以在 O(1) 时间复杂度内完成这两种操作？
+	 * map + 链表
 	 */
 
 	private static class LRUCache {
