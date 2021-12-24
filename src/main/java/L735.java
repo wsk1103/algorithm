@@ -10,7 +10,7 @@ import java.util.Stack;
  **/
 public class L735 {
 
-	/**
+	/*
 	 * 给定一个整数数组 asteroids，表示在同一行的小行星。
 	 * <p>
 	 * 对于数组中的每一个元素，其绝对值表示小行星的大小，正负表示小行星的移动方向（正表示向右移动，负表示向左移动）。每一颗小行星以相同的速度移动。
@@ -46,6 +46,7 @@ public class L735 {
 	 * 2 <= asteroids.length <= 104
 	 * -1000 <= asteroids[i] <= 1000
 	 * asteroids[i] != 0
+	 * 栈
 	 */
 
 	public static int[] handle(int[] asteroids) {
