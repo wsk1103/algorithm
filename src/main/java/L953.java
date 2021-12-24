@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author sk
  * @time 2021/10/29
@@ -5,7 +8,7 @@
  **/
 public class L953 {
 
-	/**
+	/*
 	 * 某种外星语也使用英文小写字母，但可能顺序 order 不同。字母表的顺序（order）是一些小写字母的排列。
 	 *
 	 * 给定一组用外星语书写的单词 words，以及其字母表的顺序 order，只有当给定的单词在这种外星语中按字典序排列时，返回 true；否则，返回 false。
@@ -36,6 +39,71 @@ public class L953 {
 	 * order.length == 26
 	 * 在 words[i] 和 order 中的所有字符都是英文小写字母。
 	 */
+	public static boolean handle(String[] words, String order) {
+		Map<Character, Integer> map = new HashMap<>();
+		int ol = order.length();
+		for (int i = 0; i < ol; i++) {
+			char c = order.charAt(i);
+			map.put(c, i);
+		}
+
+		int wl = words.length;
+		for (int i = 0; i < wl - 1; i++) {
+			String n1 = words[i];
+			String n2 = words[i + 1];
+			if (!ch(n1, n2, map)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	private static boolean ch(String n1, String n2, Map<Character, Integer> map) {
+		if (n1.equals(n2)) {
+			return true;
+		}
+		return check(n1, n2, 0, 0, map);
+	}
+
+	private static boolean check(String n1, String n2, int l1, int l2, Map<Character, Integer> map) {
+		if (l2 >= n2.length()) {
+			return false;
+		}
+		if (l1 >= n1.length()) {
+			return true;
+		}
+		char c1 = n1.charAt(l1);
+		char c2 = n2.charAt(l2);
+		int i1 = map.get(c1);
+		int i2 = map.get(c2);
+		if (i1 < i2) {
+			return true;
+		} else if (i1 > i2) {
+			return false;
+		} else {
+			return check(n1, n2, l1 + 1, l2 + 1, map);
+		}
+	}
+
+	public static void main(String[] args) {
+		String[] w;
+		String order;
+		w = new String[]{"word","world","row"};
+		order = "worldabcefghijkmnpqstuvxyz";
+		System.err.println(handle(w, order));
+
+		w = new String[]{"apple","app"};
+		order = "abcdefghijklmnopqrstuvwxyz";
+		System.err.println(handle(w, order));
+
+		w = new String[]{"app","apple"};
+		order = "abcdefghijklmnopqrstuvwxyz";
+		System.err.println(handle(w, order));
+		w = new String[]{"hello","leetcode"};
+		order = "hlabcdefgijkmnopqrstuvwxyz";
+		System.err.println(handle(w, order));
+	}
+
 
 
 
