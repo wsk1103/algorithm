@@ -8,7 +8,7 @@ import java.util.List;
  **/
 public class L285 {
 
-	/**
+	/*
 	 * 给定一棵二叉搜索树和其中的一个节点 p ，找到该节点在树中的中序后继。如果节点没有中序后继，请返回 null 。
 	 * <p>
 	 * 节点 p 的后继是值比 p.val 大的节点中键值最小的节点，即按中序遍历的顺序节点 p 的下一个节点。
@@ -58,9 +58,7 @@ public class L285 {
 		}
 		queue.add(node);
 		if (p.val == node.val) {
-//			queue.add(node);
 			i = queue.size();
-//			queue.add(node.right);
 		}
 		if (p.val >= node.val) {
 			loop(node.right, p);
