@@ -7,7 +7,7 @@ import com.alibaba.fastjson.JSON;
  **/
 public class L814 {
 
-	/**
+	/*
 	 * 给定一个二叉树 根节点 root ，树的每个节点的值要么是 0，要么是 1。请剪除该二叉树中所有节点的值为 0 的子树。
 	 * <p>
 	 * 节点 node 的子树为 node 本身，以及所有 node 的后代。

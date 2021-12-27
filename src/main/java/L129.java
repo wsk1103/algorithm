@@ -8,7 +8,7 @@ import java.util.List;
  **/
 public class L129 {
 
-	/**
+	/*
 	 * 给定一个二叉树的根节点 root ，树中每个节点都存放有一个 0 到 9 之间的数字。
 	 * <p>
 	 * 每条从根节点到叶节点的路径都代表一个数字：
@@ -54,7 +54,6 @@ public class L129 {
 		}
 		List<Integer> list = new ArrayList<>();
 		insert(root, root.val, list);
-//		int sum = list.stream().reduce(Integer::sum).orElse(0);
 		int sum = 0;
 		for (Integer integer : list) {
 			sum += integer;
@@ -75,11 +74,34 @@ public class L129 {
 		}
 	}
 
+	public static int handle2(TreeNode root) {
+		if (root == null) {
+			return 0;
+		}
+		return add(root, root.val);
+	}
+
+	public static int add(TreeNode node, int sum) {
+		if (node == null || (node.left == null && node.right == null)) {
+			return sum;
+		}
+		int temp = 0;
+		if (node.left != null) {
+			temp += add(node.left, sum * 10 + node.left.val);
+		}
+		if (node.right != null) {
+			temp += add(node.right, sum * 10 + node.right.val);
+		}
+		return temp;
+	}
+
 	public static void main(String[] args) {
 		L297 l297 = new L297();
 		String s = "4,9,0,n,n,5,1";
 		TreeNode node = l297.deserialize(s);
 		int sum = handle(node);
+		System.err.println(sum);
+		sum = handle2(node);
 		System.err.println(sum);
 	}
 

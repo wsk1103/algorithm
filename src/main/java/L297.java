@@ -1,5 +1,4 @@
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * @author sk
@@ -8,7 +7,7 @@ import java.util.Queue;
  **/
 public class L297 {
 
-	/**
+	/*
 	 * 序列化是将一个数据结构或者对象转换为连续的比特位的操作，进而可以将转换后的数据存储在一个文件或者内存中，同时也可以通过网络传输到另一个计算机环境，采取相反方式重构得到原数据。
 	 * <p>
 	 * 请设计一个算法来实现二叉树的序列化与反序列化。这里不限定你的序列 / 反序列化算法执行逻辑，只需要保证一个二叉树可以被序列化为一个字符串并且将这个字符串反序列化为原始的树结构。
@@ -156,11 +155,29 @@ public class L297 {
 		return new TreeNode(Integer.parseInt(s));
 	}
 
+	private static final Map<Integer, TreeNode> map = new HashMap<>();
+	Random random = new Random();
+	public String serialize3(TreeNode root) {
+
+		int i = random.nextInt(Integer.MAX_VALUE);
+		while (map.containsKey(i)) {
+			i = random.nextInt(Integer.MAX_VALUE);
+		}
+		map.put(i, root);
+		return Integer.toString(i);
+	}
+
+	public TreeNode deserialize3(String data) {
+		return map.get(Integer.parseInt(data));
+	}
+
+
 	public static void main(String[] args) {
 		L297 l297 = new L297();
 		String s = "1,2,3,n,n,6,7,8,9";
-		TreeNode node = l297.deserialize(s);
-		String ss = l297.serialize2(node);
+		TreeNode node = l297.deserialize3(s);
+		String ss = l297.serialize3(node);
+		node = l297.deserialize3(s);
 		System.err.println(ss);
 	}
 
