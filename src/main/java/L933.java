@@ -10,7 +10,7 @@ import java.util.Queue;
  **/
 public class L933 {
 
-	/**
+	/*
 	 * 写一个 RecentCounter 类来计算特定时间范围内最近的请求。
 	 * <p>
 	 * 请实现 RecentCounter 类：

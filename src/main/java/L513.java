@@ -10,7 +10,7 @@ import java.util.Queue;
  **/
 public class L513 {
 
-	/**
+	/*
 	 * 给定一个二叉树的 根节点 root，请找出该二叉树的 最底层 最左边 节点的值。
 	 * <p>
 	 * 假设二叉树中至少有一个节点。
@@ -41,7 +41,6 @@ public class L513 {
 		Queue<TreeNode> q1 = new LinkedList<>();
 		Queue<Integer> q2 = new LinkedList<>();
 		q1.offer(root);
-//		q2.offer(root.val);
 		int cur = 1;
 		int next = 0;
 		while (!q1.isEmpty()) {
@@ -66,6 +65,26 @@ public class L513 {
 		return q2.poll();
 	}
 
+	//从右边 -> 左边
+	public static int handle2(TreeNode root) {
+		Queue<TreeNode> queue = new LinkedList<>();
+		queue.add(root);
+		while (!queue.isEmpty()) {
+			TreeNode node = queue.poll();
+			if (node.right != null) {
+				queue.add(node.right);
+			}
+			if (node.left != null) {
+				queue.add(node.left);
+			}
+			if (queue.size() == 0) {
+				queue.add(node);
+				break;
+			}
+		}
+		return queue.poll().val;
+	}
+
 	public static void main(String[] args) {
 		TreeNode n1 = new TreeNode(1);
 		TreeNode n2 = new TreeNode(2);
@@ -80,6 +99,7 @@ public class L513 {
 		n2.right = n5;
 		n3.right = n6;
 		System.err.println(JSON.toJSONString(handle(n1)));
+		System.err.println(JSON.toJSONString(handle2(n1)));
 	}
 
 }
