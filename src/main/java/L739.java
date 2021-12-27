@@ -9,8 +9,9 @@ import java.util.Stack;
  **/
 public class L739 {
 
-	/**
-	 * 请根据每日 气温 列表 temperatures ，重新生成一个列表，要求其对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，请在该位置用 0 来代替。
+	/*
+	 * 请根据每日 气温 列表 temperatures ，重新生成一个列表，要求其对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。
+	 * 如果气温在这之后都不会升高，请在该位置用 0 来代替。
 	 * <p>
 	 * <p>
 	 * <p>
@@ -38,11 +39,11 @@ public class L739 {
 		int[] aa = new int[temperatures.length];
 		Stack<Integer> stack = new Stack<>();
 		for (int i = 0; i < temperatures.length; i++) {
-			int t = temperatures[i];
 			if (stack.isEmpty()) {
 				stack.push(i);
 				continue;
 			}
+			int t = temperatures[i];
 			int s = stack.peek();
 			while (t > temperatures[s]) {
 				s = stack.pop();

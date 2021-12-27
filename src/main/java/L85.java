@@ -5,7 +5,7 @@
  **/
 public class L85 {
 
-	/**
+	/*
 	 * 给定一个由 0 和 1 组成的矩阵 matrix ，找出只包含 1 的最大矩形，并返回其面积。
 	 *
 	 * 注意：此题 matrix 输入格式为一维 01 字符串数组。
@@ -45,6 +45,7 @@ public class L85 {
 	 * cols == matrix[0].length
 	 * 0 <= row, cols <= 200
 	 * matrix[i][j] 为 '0' 或 '1'
+	 *  栈 数组 动态规划 矩阵 单调栈
 	 */
 
 }
