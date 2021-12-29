@@ -12,7 +12,7 @@ import java.util.PriorityQueue;
  **/
 public class L373 {
 
-	/**
+	/*
 	 * 给定两个以升序排列的整数数组 nums1 和 nums2 , 以及一个整数 k 。
 	 * <p>
 	 * 定义一对值 (u,v)，其中第一个元素来自 nums1，第二个元素来自 nums2 。
@@ -46,6 +46,7 @@ public class L373 {
 	 * -109 <= nums1[i], nums2[i] <= 109
 	 * nums1, nums2 均为升序排列
 	 * 1 <= k <= 1000
+	 * 大根堆 + 双指针
 	 */
 
 	public List<List<Integer>> handle(int[] nums1, int[] nums2, int k) {
@@ -60,7 +61,6 @@ public class L373 {
 				List<Integer> as = queue.peek();
 				if (temp < as.get(0) + as.get(1)) {
 					queue.poll();
-//					queue.offer(new int[]{nums1[a], nums2[b]});
 					queue.offer(Arrays.asList(nums1[a], nums2[b]));
 					b++;
 					if (b >= maxB) {
