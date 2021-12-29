@@ -9,7 +9,7 @@ import java.util.*;
  **/
 public class L347 {
 
-	/**
+	/*
 	 * 给定一个整数数组 nums 和一个整数 k ，请返回其中出现频率前 k 高的元素。可以按 任意顺序 返回答案。
 	 * <p>
 	 * <p>
@@ -33,12 +33,6 @@ public class L347 {
 	 * <p>
 	 * 进阶：所设计算法的时间复杂度 必须 优于 O(n log n) ，其中 n 是数组大小。
 	 */
-	PriorityQueue<Num> queue = new PriorityQueue<>();
-
-	static class Num {
-		int value;
-		int size;
-	}
 
 	public int[] handle(int[] nums, int k) {
 		if (nums == null || nums.length == 0) {
@@ -69,12 +63,6 @@ public class L347 {
 		while (!queue.isEmpty()) {
 			to[i++] = queue.poll()[0];
 		}
-//		List<Integer> re = new ArrayList<>(map.size());
-//		map.entrySet().stream().sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed()).forEachOrdered(e -> re.add(e.getKey()));
-//		int[] to = new int[k];
-//		for (int i = 0; i < k; i++) {
-//			to[i] = re.get(i);
-//		}
 		return to;
 	}
 
