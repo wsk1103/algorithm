@@ -32,6 +32,7 @@ public class L347 {
 	 * <p>
 	 * <p>
 	 * 进阶：所设计算法的时间复杂度 必须 优于 O(n log n) ，其中 n 是数组大小。
+	 * 小根堆
 	 */
 
 	public int[] handle(int[] nums, int k) {
