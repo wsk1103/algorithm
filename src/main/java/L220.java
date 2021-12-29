@@ -7,7 +7,7 @@ import java.util.*;
  **/
 public class L220 {
 
-	/**
+	/*
 	 * 给你一个整数数组 nums 和两个整数 k 和 t 。请你判断是否存在 两个不同下标 i 和 j，使得 abs(nums[i] - nums[j]) <= t ，同时又满足 abs(i - j) <= k 。
 	 * <p>
 	 * 如果存在则返回 true，不存在返回 false。
@@ -36,7 +36,6 @@ public class L220 {
 	 * 0 <= t <= 231 - 1
 	 * 数组 桶排序 有序集合 排序 滑动窗口
 	 */
-
 
 	public static boolean handle(int[] nums, int k, int t) {
 		if (nums == null || nums.length < 2) {

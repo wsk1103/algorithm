@@ -8,7 +8,7 @@ import java.util.Queue;
  **/
 public class L173 {
 
-	/**
+	/*
 	 * 实现一个二叉搜索树迭代器类BSTIterator ，表示一个按中序遍历二叉搜索树（BST）的迭代器：
 	 *
 	 * BSTIterator(TreeNode root) 初始化 BSTIterator 类的一个对象。BST 的根节点 root 会作为构造函数的一部分给出。
@@ -55,6 +55,7 @@ public class L173 {
 	 *
 	 * 你可以设计一个满足下述条件的解决方案吗？next() 和 hasNext() 操作均摊时间复杂度为 O(1) ，并使用 O(h) 内存。其中 h 是树的高度。
 	 */
+
 	static class BSTIterator {
 		Queue<TreeNode> queue = new LinkedList<>();
 		public BSTIterator(TreeNode root) {
