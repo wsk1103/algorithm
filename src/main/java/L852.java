@@ -5,7 +5,7 @@
  **/
 public class L852 {
 
-	/**
+	/*
 	 * 符合下列属性的数组 arr 称为 山峰数组（山脉数组） ：
 	 * <p>
 	 * arr.length >= 3
@@ -65,29 +65,29 @@ public class L852 {
 		if (arr.length == 1) {
 			return 0;
 		}
-		return find(arr, 0, arr.length);
+		return find2(arr, 0, arr.length);
 	}
 
-	public static int find(int[] arr, int start, int end) {
+	public static int find2(int[] arr, int start, int end) {
 		int mid = (start + end) / 2;
 		if (mid == 0) {
 			if (arr[mid] > arr[mid + 1]) {
 				return mid;
 			}
-			return find(arr, mid + 1, end);
+			return find2(arr, mid + 1, end);
 		}
 		if (mid == arr.length - 1) {
 			if (arr[mid] > arr[mid - 1]) {
 				return mid;
 			}
-			return find(arr, start, mid - 1);
+			return find2(arr, start, mid - 1);
 		}
 		if (arr[mid] > arr[mid - 1] && arr[mid] > arr[mid + 1]) {
 			return mid;
 		} else if (arr[mid] > arr[mid - 1] && arr[mid] < arr[mid + 1]) {
-			return find(arr, mid + 1, end);
+			return find2(arr, mid + 1, end);
 		} else {
-			return find(arr, start, mid - 1);
+			return find2(arr, start, mid - 1);
 		}
 	}
 
