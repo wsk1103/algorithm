@@ -102,9 +102,7 @@ public class L35 {
 		if (target == nums[mid]) {
 			return mid;
 		}
-		if ((start == 0 && end == 0)
-				|| (start == nums.length - 1 && end == nums.length - 1)
-				|| start >= end) {
+		if (start >= end) {
 			if (target > nums[mid]) {
 				return mid + 1;
 			} else {

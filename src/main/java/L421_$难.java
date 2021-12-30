@@ -3,7 +3,7 @@
  * @time 2021/11/17
  * @desc say
  **/
-public class L421 {
+public class L421_$难 {
 
 	/*
 	 * 给定一个整数数组 nums ，返回 nums[i] XOR nums[j] 的最大运算结果，其中 0 ≤ i ≤ j < n 。异或运算
@@ -128,10 +128,10 @@ public class L421 {
 //	}
 
 	public static void main(String[] args) {
-		L421 l421 = new L421();
+		L421_$难 l421$难 = new L421_$难();
 		int[] nums;
 		nums = new int[]{2,7,8};
-		System.err.println(l421.findMaximumXOR(nums));
+		System.err.println(l421$难.findMaximumXOR(nums));
 	}
 
 	// 全局变量，一直累计前面数的值
