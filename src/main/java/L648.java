@@ -5,7 +5,7 @@
  **/
 public class L648 {
 
-	/**
+	/*
 	 * 在英语中，有一个叫做 词根(root) 的概念，它可以跟着其他一些词组成另一个较长的单词——我们称这个词为 继承词(successor)。
 	 * 例如，词根an，跟随着单词 other(其他)，可以形成新的单词 another(另一个)。
 	 * <p>
@@ -90,9 +90,6 @@ public class L648 {
 			int index = getIndex(c);
 			tr = ch[index];
 			if (tr == null) {
-				if (to.length() > 0 && word) {
-					return to.toString();
-				}
 				return prefix;
 			}
 			to.append(tr.c);
