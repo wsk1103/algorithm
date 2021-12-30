@@ -5,7 +5,7 @@
  **/
 public class L35 {
 
-	/**
+	/*
 	 * 给定一个排序的整数数组 nums 和一个整数目标值 target ，请在数组中找到 target ，
 	 * 并返回其下标。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
 	 * <p>
@@ -93,24 +93,56 @@ public class L35 {
 		}
 	}
 
+	public static int handle2(int[] nums, int target) {
+		return find2(nums, 0, nums.length - 1, target);
+	}
+
+	public static int find2(int[] nums, int start, int end, int target) {
+		int mid = (start + end) / 2;
+		if (target == nums[mid]) {
+			return mid;
+		}
+		if ((start == 0 && end == 0)
+				|| (start == nums.length - 1 && end == nums.length - 1)
+				|| start >= end) {
+			if (target > nums[mid]) {
+				return mid + 1;
+			} else {
+				return mid;
+			}
+		}
+		if (nums[mid] > target) {
+			return find2(nums, start, mid - 1, target);
+		} else {
+			return find2(nums, mid + 1, end, target);
+		}
+	}
+
 	public static void main(String[] args) {
 		int[] nums;
 		int target;
 		nums = new int[]{1, 3};
-		target = 2;
+		target = 0;
 		System.err.println(handle(nums, target));
+		System.err.println(handle2(nums, target));
+		target = 4;
+		System.err.println(handle(nums, target));
+		System.err.println(handle2(nums, target));
 		nums = new int[]{1, 3, 5, 6, 7, 8};
 		target = 5;
 		System.err.println(handle(nums, target));
+//		System.err.println(handle2(nums, target));
 
 		nums = new int[]{1, 3, 5, 6, 7, 8};
 		target = 3;
 		System.err.println(handle(nums, target));
+//		System.err.println(handle2(nums, target));
 
 
 		nums = new int[]{1, 3, 5, 6, 7, 8};
 		target = 4;
 		System.err.println(handle(nums, target));
+		System.err.println(handle2(nums, target));
 
 		nums = new int[]{1, 3, 5, 6, 7, 8};
 		target = 0;
@@ -137,27 +169,34 @@ public class L35 {
 		nums = new int[]{1, 3, 5, 7, 9};
 		target = 4;
 		System.err.println(handle(nums, target));
+		System.err.println(handle2(nums, target));
 
 		nums = new int[]{1, 3, 5, 7, 9};
 		target = 0;
 		System.err.println(handle(nums, target));
+		System.err.println(handle2(nums, target));
 
 		nums = new int[]{1, 3, 5, 7, 9};
 		target = 8;
 		System.err.println(handle(nums, target));
+		System.err.println(handle2(nums, target));
 
 		nums = new int[]{1, 3, 5, 7, 9};
 		target = 9;
 		System.err.println(handle(nums, target));
+		System.err.println(handle2(nums, target));
 		nums = new int[]{1, 3, 5, 7, 9};
 		target = 10;
 		System.err.println(handle(nums, target));
+		System.err.println(handle2(nums, target));
 		nums = new int[]{3};
 		target = 1;
 		System.err.println(handle(nums, target));
+		System.err.println(handle2(nums, target));
 		nums = new int[]{3};
 		target = 5;
 		System.err.println(handle(nums, target));
+		System.err.println(handle2(nums, target));
 
 	}
 

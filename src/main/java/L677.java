@@ -7,7 +7,7 @@ import java.util.Map;
  * @desc say
  **/
 public class L677 {
-	/**
+	/*
 	 * 实现一个 MapSum 类，支持两个方法，insert 和 sum：
 	 * <p>
 	 * MapSum() 初始化 MapSum 对象

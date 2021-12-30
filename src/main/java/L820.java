@@ -9,7 +9,7 @@ import java.util.*;
  **/
 public class L820 {
 
-	/**
+	/*
 	 * 单词数组 words 的 有效编码 由任意助记字符串 s 和下标数组 indices 组成，且满足：
 	 * <p>
 	 * words.length == indices.length
@@ -69,7 +69,7 @@ public class L820 {
 				temp.add(word);
 			}
 		}
-		System.err.println(sb.toString());
+		System.err.println(sb);
 		return sb.length();
 	}
 
@@ -110,16 +110,11 @@ public class L820 {
 				temp = dict.dicts;
 				setNull = true;
 			} else {
-//				if (dict.isEnd && i != 0) {
-//					dict.isEnd = false;
-//				}
 				temp = dict.dicts;
 			}
 		}
 		if (setNull) {
 			dict.isEnd = true;
-		}
-		if (setNull) {
 			return word.length();
 		}
 		return 0;
@@ -135,7 +130,10 @@ public class L820 {
 //		System.err.println(JSON.toJSONString(words));
 //		System.err.println(handle2(words));
 
-		words = new String[]{"time","atime","btime"};
+		words = new String[]{"a","bca"};
+		System.err.println(JSON.toJSONString(words));
+		System.err.println(handle2(words));
+		words = new String[]{"time", "atime", "btime"};
 		System.err.println(JSON.toJSONString(words));
 		System.err.println(handle2(words));
 		words = new String[]{"abc", "a", "bc", "c"};
