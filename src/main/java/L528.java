@@ -7,8 +7,9 @@ import java.util.Random;
  **/
 public class L528 {
 
-	/**
-	 * 给定一个正整数数组 w ，其中 w[i] 代表下标 i 的权重（下标从 0 开始），请写一个函数 pickIndex ，它可以随机地获取下标 i，选取下标 i 的概率与 w[i] 成正比。
+	/*
+	 * 给定一个正整数数组 w ，其中 w[i] 代表下标 i 的权重（下标从 0 开始），请写一个函数 pickIndex ，
+	 * 它可以随机地获取下标 i，选取下标 i 的概率与 w[i] 成正比。
 	 *
 	 * 例如，对于 w = [1, 3]，挑选下标 0 的概率为 1 / (1 + 3) = 0.25 （即，25%），而选取下标 1 的概率为 3 / (1 + 3) = 0.75（即，75%）。
 	 *
@@ -56,7 +57,10 @@ public class L528 {
 	 * 1 <= w.length <= 10000
 	 * 1 <= w[i] <= 10^5
 	 * pickIndex 将被调用不超过 10000 次
+	 *
+	 * 二分查找
 	 */
+
 	static class  Solution {
 		int[] nums;
 		Random random = new Random();
@@ -71,8 +75,10 @@ public class L528 {
 			total = sum;
 		}
 
+		//1, 7, 12
 		public int pickIndex() {
 			int r = random.nextInt(total) + 1;
+//			int r = 1;
 			int start = 0;
 			int end = nums.length - 1;
 			while (start < end) {
@@ -92,7 +98,7 @@ public class L528 {
 		int[] nums;
 		nums = new int[]{1,6,5};
 		s = new Solution(nums);
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < 50; i++) {
 			System.err.println(s.pickIndex());
 		}
 	}

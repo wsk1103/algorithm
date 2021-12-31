@@ -5,9 +5,9 @@ import java.util.Arrays;
  * @time 2021/11/18
  * @desc say
  **/
-public class L875 {
+public class L875_$ {
 
-	/**
+	/*
 	 * 狒狒喜欢吃香蕉。这里有 N 堆香蕉，第 i 堆中有 piles[i] 根香蕉。警卫已经离开了，将在 H 小时后回来。
 	 * <p>
 	 * 狒狒可以决定她吃香蕉的速度 K （单位：根/小时）。每个小时，她将会选择一堆香蕉，从中吃掉 K 根。
@@ -45,7 +45,7 @@ public class L875 {
 		int start = 1;
 		int end = piles[ piles.length - 1];
 		while (start < end) {
-			int mid = (end - start) / 2 + start;
+			int mid = (end + start) / 2;
 			int cur = 0;
 			for (int pile : piles) {
 				cur += (pile + mid - 1) / mid;
@@ -57,8 +57,6 @@ public class L875 {
 			}
 		}
 		return end;
-//		int min = piles[start];
-//		int max = piles[end];
 	}
 
 	public static void main(String[] args) {

@@ -5,7 +5,7 @@
  **/
 public class L69 {
 
-	/**
+	/*
 	 * 给定一个非负整数 x ，计算并返回 x 的平方根，即实现 int sqrt(int x) 函数。
 	 * <p>
 	 * 正数的平方根有两个，只输出其中的正数平方根。
@@ -29,6 +29,7 @@ public class L69 {
 	 * <p>
 	 * 0 <= x <= 231 - 1
 	 */
+
 	public static int handle(int x) {
 		long min = 1;
 		long max = x;
@@ -49,23 +50,45 @@ public class L69 {
 		return (int)mid;
 	}
 
-	public static int min(int x, int s) {
-		while (s * s > x) {
-			s = (s + s / 2) / 2;
+	public static int handle2(int x) {
+		long min = 1;
+		long max = x;
+		long mid = (min + max) >> 1;
+		long temp = 0;
+		while (Math.abs(temp - mid) > 0) {
+			if (mid * mid == x) {
+				break;
+			}
+			if (mid * mid > x) {
+				max = mid;
+			} else {
+				min = mid;
+			}
+			temp = min;
+			mid = (min + max) >> 1;
 		}
-		return s;
+		return (int)mid;
 	}
 
-	public static int max(int x, int s) {
-		while (s * s < x) {
-			s = (s + s / 2);
-		}
-		return s;
-	}
+//	public static int min(int x, int s) {
+//		while (s * s > x) {
+//			s = (s + s / 2) / 2;
+//		}
+//		return s;
+//	}
+//
+//	public static int max(int x, int s) {
+//		while (s * s < x) {
+//			s = (s + s / 2);
+//		}
+//		return s;
+//	}
 
 	public static void main(String[] args) {
 		System.err.println(handle(2147395599));
+		System.err.println(handle2(2147395599));
 		System.err.println(handle(1));
+		System.err.println(handle2(1));
 		System.err.println(handle(2));
 		System.err.println(handle(3));
 		System.err.println(handle(4));
