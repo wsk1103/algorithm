@@ -48,6 +48,9 @@ public class L875_$ {
 			int mid = (end + start) / 2;
 			int cur = 0;
 			for (int pile : piles) {
+				//二分终止条件设置的是 l >= r ，所以 l 的更新必须是 l = m + 1 ，因为如果 l = r - 1 的话，m 会等于 l 。
+				//为了防止整型溢出，计算 l 和 r 均值的时候不要写 (l + r) / 2 。
+				//向上取整简单写法就是 (p + m - 1) / m 。
 				cur += (pile + mid - 1) / mid;
 			}
 			if (cur > h) {
