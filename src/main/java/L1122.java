@@ -9,7 +9,7 @@ import java.util.*;
  **/
 public class L1122 {
 
-	/**
+	/*
 	 * 给定两个数组，arr1 和 arr2，
 	 * <p>
 	 * arr2 中的元素各不相同
