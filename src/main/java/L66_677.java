@@ -6,7 +6,7 @@ import java.util.Map;
  * @time 2021/11/17
  * @desc say
  **/
-public class L677 {
+public class L66_677 {
 	/*
 	 * 实现一个 MapSum 类，支持两个方法，insert 和 sum：
 	 * <p>
@@ -86,24 +86,24 @@ public class L677 {
 	}
 
 	public static void main(String[] args) {
-		L677 l677 = new L677();
-		l677.insert("qwerr", 10);
-		System.err.println(l677.sum("qwerr"));
-		System.err.println(l677.sum("qwerrr"));
-		System.err.println(l677.sum("qwe"));
-		System.err.println(l677.sum("rqwe"));
+		L66_677 l66677 = new L66_677();
+		l66677.insert("qwerr", 10);
+		System.err.println(l66677.sum("qwerr"));
+		System.err.println(l66677.sum("qwerrr"));
+		System.err.println(l66677.sum("qwe"));
+		System.err.println(l66677.sum("rqwe"));
 
-		l677.insert("qwe", 20);
-		System.err.println(l677.sum("qwerr"));
-		System.err.println(l677.sum("qwerrr"));
-		System.err.println(l677.sum("qwe"));
-		System.err.println(l677.sum("rqwe"));
+		l66677.insert("qwe", 20);
+		System.err.println(l66677.sum("qwerr"));
+		System.err.println(l66677.sum("qwerrr"));
+		System.err.println(l66677.sum("qwe"));
+		System.err.println(l66677.sum("rqwe"));
 
-		l677.insert("qwerr", 1);
-		System.err.println(l677.sum("qw"));
-		System.err.println(l677.sum("qwe"));
-		System.err.println(l677.sum("rqwe"));
-		System.err.println(l677.sum("qwerr"));
+		l66677.insert("qwerr", 1);
+		System.err.println(l66677.sum("qw"));
+		System.err.println(l66677.sum("qwe"));
+		System.err.println(l66677.sum("rqwe"));
+		System.err.println(l66677.sum("qwerr"));
 	}
 
 }

@@ -7,7 +7,7 @@ import java.util.*;
  * @time 2021/11/17
  * @desc say
  **/
-public class L820 {
+public class L65_820 {
 
 	/*
 	 * 单词数组 words 的 有效编码 由任意助记字符串 s 和下标数组 indices 组成，且满足：

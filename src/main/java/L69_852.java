@@ -3,7 +3,7 @@
  * @time 2021/11/18
  * @desc say
  **/
-public class L852 {
+public class L69_852 {
 
 	/*
 	 * 符合下列属性的数组 arr 称为 山峰数组（山脉数组） ：

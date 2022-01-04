@@ -3,7 +3,7 @@
  * @time 2021/11/16
  * @desc say
  **/
-public class L648 {
+public class L63_648 {
 
 	/*
 	 * 在英语中，有一个叫做 词根(root) 的概念，它可以跟着其他一些词组成另一个较长的单词——我们称这个词为 继承词(successor)。

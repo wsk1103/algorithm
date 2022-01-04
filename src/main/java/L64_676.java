@@ -8,7 +8,7 @@ import java.util.Map;
  * @time 2021/11/16
  * @desc say
  **/
-public class L676 {
+public class L64_676 {
 
 	/*
 	 * 设计一个使用单词列表进行初始化的数据结构，单词列表中的单词 互不相同 。

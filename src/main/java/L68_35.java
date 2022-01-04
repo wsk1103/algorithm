@@ -3,7 +3,7 @@
  * @time 2021/11/18
  * @desc say
  **/
-public class L35 {
+public class L68_35 {
 
 	/*
 	 * 给定一个排序的整数数组 nums 和一个整数目标值 target ，请在数组中找到 target ，
