@@ -3,7 +3,7 @@
  * @time 2021/12/17
  * @desc say
  **/
-public class L67 {
+public class L2_67 {
 
     /*
      * 给定两个 01 字符串 a 和 b ，请计算它们的和，并以二进制字符串的形式输出。

@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSON;
  * @time 2021/12/17
  * @desc say
  **/
-public class L338 {
+public class L3_338 {
 
     /*
      * 给定一个非负整数 n ，请计算 0 到 n 之间的每个数字的二进制表示中 1 的个数，并输出一个数组。

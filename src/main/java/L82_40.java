@@ -7,9 +7,9 @@ import java.util.*;
  * @time 2021/11/22
  * @desc say
  **/
-public class L40 {
+public class L82_40 {
 
-	/**
+	/*
 	 * 给定一个可能有重复数字的整数数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
 	 * <p>
 	 * candidates 中的每个数字在每个组合中只能使用一次，解集不能包含重复的组合。
@@ -42,27 +42,28 @@ public class L40 {
 	 * 1 <= candidates[i] <= 50
 	 * 1 <= target <= 30
 	 */
-	List<List<Integer>> to = new ArrayList<>();
-	LinkedList<Integer> path = new LinkedList<>();
-	Map<Integer, Integer> map = new HashMap<>();
+
 
 	public List<List<Integer>> handle(int[] candidates, int target) {
 		if (candidates == null || candidates.length < 1) {
 			return new ArrayList<>();
 		}
-		List<Integer> temp = new ArrayList<>();
+		List<List<Integer>> to = new ArrayList<>();
+		LinkedList<Integer> path = new LinkedList<>();
+		Map<Integer, Integer> map = new HashMap<>();
 		for (int ca : candidates) {
-			if (!map.containsKey(ca)) {
-				temp.add(ca);
-			}
+//			if (!map.containsKey(ca)) {
+//				temp.add(ca);
+//			}
 			map.put(ca, map.getOrDefault(ca, 0) + 1);
 		}
-		hh(temp, 0, target);
+		List<Integer> temp = new ArrayList<>(map.keySet());
+		hh(temp, to, path, map, 0, target);
 		return to;
 	}
 
 
-	public void hh(List<Integer> nums, int cur, int target) {
+	public void hh(List<Integer> nums, List<List<Integer>> to, LinkedList<Integer> path, Map<Integer, Integer> map, int cur, int target) {
 		if (target < 0) {
 			return;
 		}
@@ -76,14 +77,14 @@ public class L40 {
 				if (nums.get(i) <= target) {
 					map.put(nums.get(i), --size);
 					path.add(nums.get(i));
-					hh(nums, i, target - nums.get(i));
+					hh(nums, to, path, map, i, target - nums.get(i));
 					path.removeLast();
 					map.put(nums.get(i), ++size);
 				}
 			} else {
 				if (nums.get(i) <= target) {
 					path.add(nums.get(i));
-					hh(nums, i + 1, target - nums.get(i));
+					hh(nums, to, path, map, i + 1, target - nums.get(i));
 					path.removeLast();
 				}
 
@@ -92,21 +93,21 @@ public class L40 {
 	}
 
 	public static void main(String[] args) {
-		L40 l40;
+		L82_40 l8240;
 		int[] nums;
 		int target;
 		nums = new int[]{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
 		target = 30;
-		l40 = new L40();
-		System.err.println(JSON.toJSONString(l40.handle(nums, target)));
+		l8240 = new L82_40();
+		System.err.println(JSON.toJSONString(l8240.handle(nums, target)));
 
 		nums = new int[]{10, 1, 2, 7, 6, 1, 5};
 		target = 8;
-		l40 = new L40();
-		System.err.println(JSON.toJSONString(l40.handle(nums, target)));
+		l8240 = new L82_40();
+		System.err.println(JSON.toJSONString(l8240.handle(nums, target)));
 		nums = new int[]{3,1,3,5,1,1};
 		target = 8;
-		l40 = new L40();
-		System.err.println(JSON.toJSONString(l40.handle(nums, target)));
+		l8240 = new L82_40();
+		System.err.println(JSON.toJSONString(l8240.handle(nums, target)));
 	}
 }

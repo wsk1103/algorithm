@@ -9,7 +9,7 @@ import java.util.List;
  * @time 2021/10/14
  * @desc say
  **/
-public class L15 {
+public class L7_15 {
 
     /*
      * 给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a ，b ，c ，使得 a + b + c = 0 ？请找出所有和为 0 且 不重复 的三元组。

@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSON;
  * @time 2021/10/14
  * @desc say
  **/
-public class L167 {
+public class L6_167 {
     /*
      * 给定一个已按照 升序排列  的整数数组 numbers ，请你从数组中找出两个数满足相加之和等于目标数 target 。
      * <p>
@@ -29,6 +29,7 @@ public class L167 {
      * 输入：numbers = [-1,0], target = -1
      * 输出：[0,1]
      */
+
     //1. map 存储值
     public static int[] handle(int[] numbers, int target) {
         //判空

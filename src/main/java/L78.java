@@ -11,7 +11,7 @@ import java.util.List;
  **/
 public class L78 {
 
-	/**
+	/*
 	 * 给定一个整数数组 nums ，数组中的元素 互不相同 。返回该数组所有可能的子集（幂集）。
 	 * <p>
 	 * 解集 不能 包含重复的子集。你可以按 任意顺序 返回解集。
@@ -33,6 +33,8 @@ public class L78 {
 	 * 1 <= nums.length <= 10
 	 * -10 <= nums[i] <= 10
 	 * nums 中的所有元素 互不相同
+	 *
+	 * tips: 递归回溯
 	 */
 
 	public static List<List<Integer>> handle(int[] nums) {
@@ -72,6 +74,7 @@ public class L78 {
 	public static void main(String[] args) {
 		int[] nums;
 		nums = new int[]{1, 2, 3, 4};
+		//[[],[1],[1,2],[1,2,3],[1,2,3,4],[1,2,4],[1,3],[1,3,4],[1,4],[2],[2,3],[2,3,4],[2,4],[3],[3,4],[4]]
 		List<List<Integer>> re = handle(nums);
 		System.err.println(JSON.toJSONString(re));
 	}

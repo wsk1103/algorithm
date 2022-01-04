@@ -3,7 +3,7 @@
  * @time 2021/12/17
  * @desc say
  **/
-public class L29 {
+public class L1_29 {
 
     /*
      * 给定两个整数 a 和 b ，求它们的除法的商 a/b ，要求不得使用乘号 '*'、除号 '/' 以及求余符号 '%' 。
