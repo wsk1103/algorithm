@@ -11,7 +11,7 @@ import java.util.List;
  **/
 public class L148 {
 
-	/**
+	/*
 	 * 给定链表的头结点 head ，请将其按 升序 排列并返回 排序后的链表 。
 	 * <p>
 	 * <p>
@@ -72,6 +72,7 @@ public class L148 {
 
 	/**
 	 * 归并排序
+	 * 快慢指针 切割 链表，循环切割链表，直至快慢列表成单个或者空，递归快慢链表合并
 	 * @param head
 	 * @return
 	 */
@@ -130,17 +131,6 @@ public class L148 {
 		if (slow != null) {
 			temp.next = slow;
 		}
-//		while (fast != null) {
-//			temp.next = fast;
-//			temp = temp.next;
-//			fast = fast.next;
-//		}
-//
-//		while (slow != null) {
-//			temp.next = slow;
-//			temp = temp.next;
-//			slow = slow.next;
-//		}
 
 		return re;
 	}
