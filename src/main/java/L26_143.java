@@ -7,7 +7,7 @@ import java.util.Stack;
  * @time 2021/10/26
  * @desc say
  **/
-public class L143 {
+public class L26_143 {
 
     /*
      * 给定一个单链表 L 的头节点 head ，单链表 L 表示为：

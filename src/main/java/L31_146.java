@@ -6,7 +6,7 @@ import java.util.Map;
  * @time 2021/10/28
  * @desc say
  **/
-public class L146 {
+public class L31_146 {
 
 	/*
 	 * 运用所掌握的数据结构，设计和实现一个  LRU (Least Recently Used，最近最少使用) 缓存机制 。

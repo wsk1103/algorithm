@@ -6,7 +6,7 @@ import java.util.Map;
  * @time 2021/10/29
  * @desc say
  **/
-public class L953 {
+public class L34_953 {
 
 	/*
 	 * 某种外星语也使用英文小写字母，但可能顺序 order 不同。字母表的顺序（order）是一些小写字母的排列。

@@ -7,7 +7,7 @@ import java.util.Map;
  * @time 2021/10/28
  * @desc say
  **/
-public class L242 {
+public class L32_242 {
 
 	/*
 	 * 给定两个字符串 s 和 t ，编写一个函数来判断它们是不是一组变位词（字母异位词）。

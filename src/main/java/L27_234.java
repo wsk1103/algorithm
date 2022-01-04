@@ -7,7 +7,7 @@ import java.util.List;
  * @time 2021/10/27
  * @desc say
  **/
-public class L234 {
+public class L27_234 {
 
     /*
      * 给定一个链表的 头节点 head ，请判断其是否为回文链表。

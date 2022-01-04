@@ -6,7 +6,7 @@ import java.util.List;
  * @time 2021/10/25
  * @desc say
  **/
-public class L19 {
+public class L21_19 {
     /*
      * 给定一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
      * <p>

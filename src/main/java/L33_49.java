@@ -7,7 +7,7 @@ import java.util.*;
  * @time 2021/10/29
  * @desc say
  **/
-public class L49 {
+public class L33_49 {
 
 	/*
 	 //给你一个字符串数组，请你将 字母异位词 组合在一起。可以按任意顺序返回结果列表。

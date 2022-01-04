@@ -3,7 +3,7 @@
  * @time 2021/10/25
  * @desc say
  **/
-public class L160 {
+public class L23_160 {
 
     /*
      * 给定两个单链表的头节点 headA 和 headB ，请找出并返回两个单链表相交的起始节点。如果两个链表没有交点，返回 null 。

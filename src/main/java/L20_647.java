@@ -8,7 +8,7 @@ import java.util.Map;
  * @time 2021/10/25
  * @desc say
  **/
-public class L647 {
+public class L20_647 {
 
     /*
      * 给定一个字符串 s ，请计算这个字符串中有多少个回文子字符串。

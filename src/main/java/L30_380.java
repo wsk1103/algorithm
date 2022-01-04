@@ -5,7 +5,7 @@ import java.util.*;
  * @time 2021/10/27
  * @desc say
  **/
-public class L380 {
+public class L30_380 {
 
     /*
      * 设计一个支持在平均 时间复杂度 O(1) 下，执行以下操作的数据结构：

@@ -7,7 +7,7 @@ import java.util.Stack;
  * @time 2021/10/26
  * @desc say
  **/
-public class L206 {
+public class L24_206 {
 
     /*
      * 给定单链表的头节点 head ，请反转链表，并返回反转后的链表的头节点。
