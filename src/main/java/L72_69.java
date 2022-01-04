@@ -3,7 +3,7 @@
  * @time 2021/11/18
  * @desc say
  **/
-public class L69 {
+public class L72_69 {
 
 	/*
 	 * 给定一个非负整数 x ，计算并返回 x 的平方根，即实现 int sqrt(int x) 函数。

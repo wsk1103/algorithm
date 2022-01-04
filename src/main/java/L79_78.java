@@ -9,7 +9,7 @@ import java.util.List;
  * @time 2021/11/22
  * @desc say
  **/
-public class L78 {
+public class L79_78 {
 
 	/*
 	 * 给定一个整数数组 nums ，数组中的元素 互不相同 。返回该数组所有可能的子集（幂集）。

@@ -10,7 +10,7 @@ import java.util.List;
  * @time 2021/11/19
  * @desc say
  **/
-public class L56 {
+public class L74_56 {
 
 	/*
 	 * 数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。

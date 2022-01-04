@@ -5,7 +5,7 @@ import java.util.Random;
  * @time 2021/11/18
  * @desc say
  **/
-public class L528 {
+public class L71_528 {
 
 	/*
 	 * 给定一个正整数数组 w ，其中 w[i] 代表下标 i 的权重（下标从 0 开始），请写一个函数 pickIndex ，

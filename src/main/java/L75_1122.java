@@ -7,7 +7,7 @@ import java.util.*;
  * @time 2021/11/19
  * @desc say
  **/
-public class L1122 {
+public class L75_1122 {
 
 	/*
 	 * 给定两个数组，arr1 和 arr2，

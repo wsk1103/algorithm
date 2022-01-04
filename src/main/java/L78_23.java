@@ -3,7 +3,7 @@
  * @time 2021/11/22
  * @desc say
  **/
-public class L23 {
+public class L78_23 {
 
     /*
      * 给定一个链表数组，每个链表都已经按升序排列。
