@@ -3,7 +3,7 @@
  * @time 2021/10/22
  * @desc say
  **/
-public class L125 {
+public class L18_125 {
 
     /*
      * 给定一个字符串 s ，验证 s 是否是 回文串 ，只考虑字母和数字字符，可以忽略字母的大小写。

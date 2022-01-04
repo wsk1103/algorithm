@@ -8,7 +8,7 @@ import java.util.List;
  * @time 2021/10/20
  * @desc say
  **/
-public class L438 {
+public class L15_438 {
 
     /*
      * 给定两个字符串 s 和 p，找到 s 中所有 p 的 变位词 的子串，返回这些子串的起始索引。不考虑答案输出的顺序。

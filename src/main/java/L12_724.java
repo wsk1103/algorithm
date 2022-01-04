@@ -3,7 +3,7 @@
  * @time 2021/10/19
  * @desc say
  **/
-public class L724 {
+public class L12_724 {
 
     /*
      * 给你一个整数数组 nums ，请计算数组的 中心下标 。

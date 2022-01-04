@@ -3,7 +3,7 @@
  * @time 2021/10/15
  * @desc say
  **/
-public class L713 {
+public class L9_713 {
 
     /*
      * 给定一个正整数数组 nums和整数 k ，请找出该数组内乘积小于 k 的连续的子数组的个数。

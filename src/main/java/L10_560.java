@@ -6,7 +6,7 @@ import java.util.Map;
  * @time 2021/10/18
  * @desc say
  **/
-public class L560 {
+public class L10_560 {
 
     /*
      * //给你一个整数数组 nums 和一个整数 k ，请你统计并返回该数组中和为 k 的连续子数组的个数。

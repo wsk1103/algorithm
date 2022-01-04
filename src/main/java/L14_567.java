@@ -6,7 +6,7 @@ import java.util.Map;
  * @time 2021/10/20
  * @desc say
  **/
-public class L567 {
+public class L14_567 {
 
     /*
      * 给定两个字符串 s1 和 s2，写一个函数来判断 s2 是否包含 s1 的某个变位词。
