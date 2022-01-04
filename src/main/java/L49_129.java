@@ -6,7 +6,7 @@ import java.util.List;
  * @time 2021/11/5
  * @desc say
  **/
-public class L129 {
+public class L49_129 {
 
 	/*
 	 * 给定一个二叉树的根节点 root ，树中每个节点都存放有一个 0 到 9 之间的数字。
@@ -96,9 +96,9 @@ public class L129 {
 	}
 
 	public static void main(String[] args) {
-		L297 l297 = new L297();
+		L48_297 l48297 = new L48_297();
 		String s = "4,9,0,n,n,5,1";
-		TreeNode node = l297.deserialize(s);
+		TreeNode node = l48297.deserialize(s);
 		int sum = handle(node);
 		System.err.println(sum);
 		sum = handle2(node);

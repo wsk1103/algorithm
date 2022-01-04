@@ -5,7 +5,7 @@ import java.util.*;
  * @time 2021/11/5
  * @desc say
  **/
-public class L297 {
+public class L48_297 {
 
 	/*
 	 * 序列化是将一个数据结构或者对象转换为连续的比特位的操作，进而可以将转换后的数据存储在一个文件或者内存中，同时也可以通过网络传输到另一个计算机环境，采取相反方式重构得到原数据。
@@ -173,11 +173,11 @@ public class L297 {
 
 
 	public static void main(String[] args) {
-		L297 l297 = new L297();
+		L48_297 l48297 = new L48_297();
 		String s = "1,2,3,n,n,6,7,8,9";
-		TreeNode node = l297.deserialize3(s);
-		String ss = l297.serialize3(node);
-		node = l297.deserialize3(s);
+		TreeNode node = l48297.deserialize3(s);
+		String ss = l48297.serialize3(node);
+		node = l48297.deserialize3(s);
 		System.err.println(ss);
 	}
 

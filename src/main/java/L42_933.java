@@ -8,7 +8,7 @@ import java.util.Queue;
  * @time 2021/11/3
  * @desc say
  **/
-public class L933 {
+public class L42_933 {
 
 	/*
 	 * 写一个 RecentCounter 类来计算特定时间范围内最近的请求。
@@ -73,14 +73,14 @@ public class L933 {
 	}
 
 	public static void main(String[] args) {
-		L933 l933 = new L933();
+		L42_933 l42933 = new L42_933();
 //		System.err.println(l933.ping2(1));
 //		System.err.println(l933.ping2(100));
 //		System.err.println(l933.ping2(3001));
 //		System.err.println(l933.ping2(3002));
 //		System.err.println(l933.ping2(2002));
 		for (int i = 1; i <= 7002; i++) {
-			System.err.println(l933.ping2(i));
+			System.err.println(l42933.ping2(i));
 		}
 	}
 

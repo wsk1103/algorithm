@@ -6,7 +6,7 @@ import java.util.List;
  * @time 2021/11/10
  * @desc say
  **/
-public class L285 {
+public class L53_285 {
 
 	/*
 	 * 给定一棵二叉搜索树和其中的一个节点 p ，找到该节点在树中的中序后继。如果节点没有中序后继，请返回 null 。
@@ -66,18 +66,18 @@ public class L285 {
 	}
 
 	public static void main(String[] args) {
-		L297 l297 = new L297();
+		L48_297 l48297 = new L48_297();
 //		String s = "1,2,3,-1,n,n,n,5";
 		String s = "5,3,6,2,4,null,8,1,null,null,null,7,9";
-		TreeNode node = l297.deserialize(s);
-		L285 l124 = new L285();
+		TreeNode node = l48297.deserialize(s);
+		L53_285 l124 = new L53_285();
 		TreeNode max = l124.handle(node, new TreeNode(6));
 		System.err.println(max);
 
 		//		String s = "1,2,3,-1,n,n,n,5";
 		s = "2";
-		node = l297.deserialize(s);
-		l124 = new L285();
+		node = l48297.deserialize(s);
+		l124 = new L53_285();
 		max = l124.handle(node, new TreeNode(2));
 		System.err.println(max);
 	}

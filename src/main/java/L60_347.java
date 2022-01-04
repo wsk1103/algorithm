@@ -7,7 +7,7 @@ import java.util.*;
  * @time 2021/11/15
  * @desc say
  **/
-public class L347 {
+public class L60_347 {
 
 	/*
 	 * 给定一个整数数组 nums 和一个整数 k ，请返回其中出现频率前 k 高的元素。可以按 任意顺序 返回答案。
@@ -68,12 +68,12 @@ public class L347 {
 	}
 
 	public static void main(String[] args) {
-		L347 l347 = new L347();
+		L60_347 l60347 = new L60_347();
 		int[] nums;
 		int k;
 		nums = new int[]{1, 1,1,1,1, 2, 2, 3, 0, 0, 0,8,8,8,8};
 		k = 3;
-		System.err.println(JSON.toJSONString(l347.handle(nums, k)));
+		System.err.println(JSON.toJSONString(l60347.handle(nums, k)));
 	}
 
 

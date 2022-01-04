@@ -6,7 +6,7 @@ import java.util.Map;
  * @time 2021/11/10
  * @desc say
  **/
-public class L653 {
+public class L56_653 {
 
 	/*
 	 * 给定一个二叉搜索树的 根节点 root 和一个整数 k , 请判断该二叉搜索树中是否存在两个节点它们的值之和等于 k 。假设二叉搜索树中节点的值均唯一。
@@ -63,11 +63,11 @@ public class L653 {
 	}
 
 	public static void main(String[] args) {
-		L297 l297 = new L297();
+		L48_297 l48297 = new L48_297();
 //		String s = "1,2,3,-1,n,n,n,5";
 		String s = "5,3,6,2,4,null,8,1,null,null,null,7,9";
-		TreeNode node = l297.deserialize(s);
-		L653 l124 = new L653();
+		TreeNode node = l48297.deserialize(s);
+		L56_653 l124 = new L56_653();
 		boolean max = l124.handle(node, 2);
 		System.err.println(max);
 	}

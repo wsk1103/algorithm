@@ -10,7 +10,7 @@ import java.util.PriorityQueue;
  * @time 2021/11/16
  * @desc say
  **/
-public class L373 {
+public class L61_373 {
 
 	/*
 	 * 给定两个以升序排列的整数数组 nums1 和 nums2 , 以及一个整数 k 。
@@ -91,19 +91,19 @@ public class L373 {
 	}
 
 	public static void main(String[] args) {
-		L373 l373 = new L373();
+		L61_373 l61373 = new L61_373();
 		int[] nums1, nums2;
 		int k;
 		List<List<Integer>> re;
 		nums1 = new int[]{1};
 		nums2 = new int[]{1};
 		k = 1;
-		re = l373.handle(nums1, nums2, k);
+		re = l61373.handle(nums1, nums2, k);
 		System.err.println(JSON.toJSONString(re));
 		nums1 = new int[]{-10,-4,0,0,6};
 		nums2 = new int[]{3,5,6,7,8,100};
 		k = 10;
-		re = l373.handle(nums1, nums2, k);
+		re = l61373.handle(nums1, nums2, k);
 		System.err.println(JSON.toJSONString(re));
 		/*
 		test:[[-4,7],[0,3],[-4,6],[-4,5],[-4,3],[-10,8],[-10,7],[-10,6],[-10,5],[-10,3]]

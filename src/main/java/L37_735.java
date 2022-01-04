@@ -8,7 +8,7 @@ import java.util.Stack;
  * @time 2021/11/2
  * @desc say
  **/
-public class L735 {
+public class L37_735 {
 
 	/*
 	 * 给定一个整数数组 asteroids，表示在同一行的小行星。

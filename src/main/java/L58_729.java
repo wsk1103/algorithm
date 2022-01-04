@@ -6,7 +6,7 @@ import java.util.List;
  * @time 2021/11/11
  * @desc say
  **/
-public class L729 {
+public class L58_729 {
 
     /*
      * 请实现一个 MyCalendar 类来存放你的日程安排。如果要添加的时间内没有其他安排，则可以存储这个新的日程安排。

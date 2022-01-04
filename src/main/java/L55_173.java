@@ -6,7 +6,7 @@ import java.util.Queue;
  * @time 2021/11/10
  * @desc say
  **/
-public class L173 {
+public class L55_173 {
 
 	/*
 	 * 实现一个二叉搜索树迭代器类BSTIterator ，表示一个按中序遍历二叉搜索树（BST）的迭代器：
@@ -84,10 +84,10 @@ public class L173 {
 	}
 
 	public static void main(String[] args) {
-		L297 l297 = new L297();
+		L48_297 l48297 = new L48_297();
 //		String s = "1,2,3,-1,n,n,n,5";
 		String s = "7,3,15,null,null,9,20";
-		TreeNode node = l297.deserialize(s);
+		TreeNode node = l48297.deserialize(s);
 		BSTIterator bstIterator = new BSTIterator(node);
 		System.err.println(bstIterator.next());
 		System.err.println(bstIterator.next());

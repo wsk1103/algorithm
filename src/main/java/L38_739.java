@@ -7,7 +7,7 @@ import java.util.Stack;
  * @time 2021/11/2
  * @desc say
  **/
-public class L739 {
+public class L38_739 {
 
 	/*
 	 * 请根据每日 气温 列表 temperatures ，重新生成一个列表，要求其对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。

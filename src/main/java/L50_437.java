@@ -6,7 +6,7 @@ import java.util.Map;
  * @time 2021/11/8
  * @desc say
  **/
-public class L437 {
+public class L50_437 {
 
 	/*
 	 * 给定一个二叉树的根节点 root ，和一个整数 targetSum ，求该二叉树里节点值之和等于 targetSum 的 路径 的数目。
@@ -109,9 +109,9 @@ public class L437 {
 	 * 3,-2  n,1
 	 */
 	public static void main(String[] args) {
-		L297 l297 = new L297();
+		L48_297 l48297 = new L48_297();
 		String s = "10,5,-3,3,2,n,11,3,-2,n,1";
-		TreeNode node = l297.deserialize(s);
+		TreeNode node = l48297.deserialize(s);
 		int sum = handle(node, 8);
 		System.err.println(sum);
 	}

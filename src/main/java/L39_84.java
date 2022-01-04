@@ -5,7 +5,7 @@ import java.util.Stack;
  * @time 2021/11/3
  * @desc say
  **/
-public class L84 {
+public class L39_84 {
 
 	/*
 	 * 给定非负整数数组 heights ，数组中的数字用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。

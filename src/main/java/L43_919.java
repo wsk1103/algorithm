@@ -6,7 +6,7 @@ import java.util.Queue;
  * @time 2021/11/3
  * @desc say
  **/
-public class L919 {
+public class L43_919 {
 
 	/*
 	 * 完全二叉树是每一层（除最后一层外）都是完全填充（即，节点数达到最大，第 n 层有 2n-1 个节点）的，并且所有的节点都尽可能地集中在左侧。

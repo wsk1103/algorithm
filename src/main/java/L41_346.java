@@ -6,7 +6,7 @@ import java.util.Queue;
  * @time 2021/11/3
  * @desc say
  **/
-public class L346 {
+public class L41_346 {
 
     /*
      * 给定一个整数数据流和一个窗口大小，根据该滑动窗口的大小，计算滑动窗口里所有数字的平均值。

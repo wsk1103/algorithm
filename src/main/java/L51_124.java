@@ -6,7 +6,7 @@ import java.util.Map;
  * @time 2021/11/9
  * @desc say
  **/
-public class L124 {
+public class L51_124 {
 
 	/**
 	 * 路径 被定义为一条从树中任意节点出发，沿父节点-子节点连接，达到任意节点的序列。同一个节点在一条路径序列中 至多出现一次 。
@@ -270,29 +270,29 @@ public class L124 {
 	 * 5
 	 */
 	public static void main(String[] args) {
-		L297 l297 = new L297();
+		L48_297 l48297 = new L48_297();
 //		String s = "1,2,3,-1,n,n,n,5";
 		String s = "1,2,3";
-		TreeNode node = l297.deserialize(s);
-		L124 l124 = new L124();
-		int max = l124.handle3(node);
+		TreeNode node = l48297.deserialize(s);
+		L51_124 l51124 = new L51_124();
+		int max = l51124.handle3(node);
 		System.err.println(max);
 
-		l124 = new L124();
+		l51124 = new L51_124();
 		s = "1,2";
-		node = l297.deserialize(s);
-		max = l124.handle3(node);
+		node = l48297.deserialize(s);
+		max = l51124.handle3(node);
 		System.err.println(max);
 
-		l124 = new L124();
+		l51124 = new L51_124();
 		s = "-10,9,20,null,null,15,7";
-		node = l297.deserialize(s);
-		max = l124.handle3(node);
+		node = l48297.deserialize(s);
+		max = l51124.handle3(node);
 		System.err.println(max);
-		l124 = new L124();
+		l51124 = new L51_124();
 		s = "1,2,3,-1,n,n,n,5";
-		node = l297.deserialize(s);
-		max = l124.handle3(node);
+		node = l48297.deserialize(s);
+		max = l51124.handle3(node);
 		System.err.println(max);
 
 //		System.err.println(sum(node));

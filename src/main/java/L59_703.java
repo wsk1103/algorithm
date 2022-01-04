@@ -3,7 +3,7 @@
  * @time 2021/11/11
  * @desc say
  **/
-public class L703 {
+public class L59_703 {
 
 	/*
 	 * 设计一个找到数据流中第 k 大元素的类（class）。注意是排序后的第 k 大元素，不是第 k 个不同的元素。

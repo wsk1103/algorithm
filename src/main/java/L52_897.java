@@ -6,7 +6,7 @@ import java.util.Queue;
  * @time 2021/11/10
  * @desc say
  **/
-public class L897 {
+public class L52_897 {
 
 	/*
 	 * 给你一棵二叉搜索树，请 按中序遍历 将其重新排列为一棵递增顺序搜索树，使树中最左边的节点成为树的根节点，并且每个节点没有左子节点，只有一个右子节点。
@@ -66,18 +66,18 @@ public class L897 {
 	}
 
 	public static void main(String[] args) {
-		L297 l297 = new L297();
+		L48_297 l48297 = new L48_297();
 //		String s = "1,2,3,-1,n,n,n,5";
 		String s = "5,3,6,2,4,null,8,1,null,null,null,7,9";
-		TreeNode node = l297.deserialize(s);
-		L897 l124 = new L897();
+		TreeNode node = l48297.deserialize(s);
+		L52_897 l124 = new L52_897();
 		TreeNode max = l124.handle(node);
 		System.err.println(max);
 
 		//		String s = "1,2,3,-1,n,n,n,5";
 		s = "2";
-		node = l297.deserialize(s);
-		l124 = new L897();
+		node = l48297.deserialize(s);
+		l124 = new L52_897();
 		max = l124.handle(node);
 		System.err.println(max);
 	}

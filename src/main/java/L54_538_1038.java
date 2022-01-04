@@ -6,7 +6,7 @@ import java.util.List;
  * @time 2021/11/10
  * @desc say
  **/
-public class L538_1038 {
+public class L54_538_1038 {
 
 	/*
 	 * 给定一个二叉搜索树，请将它的每个节点的值替换成树中大于或者等于该节点值的所有节点值之和。
@@ -100,21 +100,21 @@ public class L538_1038 {
 	}
 
 	public static void main(String[] args) {
-		L297 l297 = new L297();
+		L48_297 l48297 = new L48_297();
 //		String s = "1,2,3,-1,n,n,n,5";
 		String s = "5,3,6,2,4,null,8,1,null,null,null,7,9";
-		TreeNode node = l297.deserialize(s);
-		L538_1038 l124 = new L538_1038();
+		TreeNode node = l48297.deserialize(s);
+		L54_538_1038 l124 = new L54_538_1038();
 		TreeNode max = l124.handle2(node);
-		System.err.println(l297.serialize(max));
-		node = l297.deserialize(s);
+		System.err.println(l48297.serialize(max));
+		node = l48297.deserialize(s);
 		max = l124.handle(node);
-		System.err.println(l297.serialize(max));
+		System.err.println(l48297.serialize(max));
 
 		//		String s = "1,2,3,-1,n,n,n,5";
 		s = "2";
-		node = l297.deserialize(s);
-		l124 = new L538_1038();
+		node = l48297.deserialize(s);
+		l124 = new L54_538_1038();
 		max = l124.handle(node);
 		System.err.println(max);
 	}
