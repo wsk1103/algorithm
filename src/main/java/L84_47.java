@@ -9,7 +9,7 @@ import java.util.*;
  **/
 public class L84_47 {
 
-	/**
+	/*
 	 * 给定一个可包含重复数字的整数集合 nums ，按任意顺序 返回它所有不重复的全排列。
 	 * <p>
 	 * <p>
@@ -66,23 +66,6 @@ public class L84_47 {
 			path.removeLast();
 			map.put(iv, size);
 		}
-//		for (int i = 0; i < list.size(); i++) {
-//			int size = map.get(list.get(i));
-//			if (size < 1) {
-//				continue;
-//			}
-//			map.put(list.get(i), size - 1);
-//			path.add(list.get(i));
-//			if (path.size() == total) {
-//				to.add(new ArrayList<>(path));
-//			}
-//			if (size - 1 >= 1) {
-//				cur = cur - 1;
-//			}
-//			handle(to, path, map, list, cur + 1, total);
-//			path.removeLast();
-//			map.put(list.get(i), size);
-//		}
 	}
 
 	public static void main(String[] args) {
