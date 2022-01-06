@@ -96,9 +96,7 @@ public class L87_93 {
 				return false;
 			}
 			int i = Integer.parseInt(s);
-			if (i > 255) {
-				return false;
-			}
+			return i <= 255;
 		}
 		return true;
 	}
