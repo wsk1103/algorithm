@@ -108,28 +108,6 @@ public class L92_926 {
 					}
 				}
 			}
-//			if (ch[i] == '0' && to1) {
-//				ch[i] = '1';
-//				han(ch, i + 1, size + 1, true, to0);
-//				ch[i] = '0';
-//			} else if (ch[i] == '1' && to0){
-//				ch[i] = '0';
-//				han(ch, i + 1, size + 1, to1, true);
-//				ch[i] = '1';
-//			} else {
-//				if (ch[i] == '0') {
-//					han(ch, i + 1, size, to1, to0);
-//					ch[i] = '1';
-//					han(ch, i + 1, size + 1, true, to0);
-//					ch[i] = '0';
-//				} else {
-//					han(ch, i + 1, size, to1, to0);
-//					ch[i] = '0';
-//					han(ch, i + 1, size + 1, to1, true);
-//					ch[i] = '1';
-//				}
-//			}
-
 		}
 	}
 
