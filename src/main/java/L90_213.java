@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 /**
  * @author sk
  * @time 2021/11/25
@@ -35,6 +39,7 @@ public class L90_213 {
 	 * 1 <= nums.length <= 100
 	 * 0 <= nums[i] <= 1000
 	 */
+
 	public static int handle(int[] nums) {
 		//f(0) = num[0]
 		//f(1) = max(num[0],num[1])
@@ -59,15 +64,57 @@ public class L90_213 {
 		return Math.max(sum1[sum1.length - 1], sum2[sum2.length - 1]);
 	}
 
+	public static int handle2(int[] nums) {
+		int a1 = 0; //f(n-2) + num[n]
+		int b1 = nums[0]; //f(n-1)
+		int a2 = 0;
+		int b2 = 0;
+		for (int i = 1; i < nums.length; i++) {
+			if (i == nums.length - 1) {
+				int temp = b1;
+				b1 = Math.max(a1, b1);
+				a1 = temp;
+			} else {
+				a1 = a1 + nums[i];
+				int temp = b1;
+				b1 = Math.max(a1, b1);
+				a1 = temp;
+			}
+			a2 = a2 + nums[i];
+			int temp = b2;
+			b2 = Math.max(a2, b2);
+			a2 = temp;
+		}
+		return Math.max(b1, b2);
+	}
+
 	public static void main(String[] args) {
 		int[] nums;
-		nums = new int[]{1,2,3,1};
+//		nums = new int[]{1,2,3,1};
+//		System.err.println(handle(nums));
+//		System.err.println(handle2(nums));
+//		nums = new int[]{1, 2, 3, 1,6};
+//		System.err.println(handle(nums));
+//		System.err.println(handle2(nums));
+//		nums = new int[]{1, 2};
+//		System.err.println(handle(nums));
+//		System.err.println(handle2(nums));
+		nums = new int[]{2,1};
 		System.err.println(handle(nums));
-		nums = new int[]{1, 2, 3, 1,6};
-		System.err.println(handle(nums));
-		nums = new int[]{1, 2};
-		System.err.println(handle(nums));
+		System.err.println(handle2(nums));
 		nums = new int[]{1, 2,4,5,645,345,2,35,62,26};
 		System.err.println(handle(nums));
+		System.err.println(handle2(nums));
+		List<Integer> te = new ArrayList<>();
+		Random r = new Random();
+		for (int i = 0; i < 100; i++) {
+			te.add(r.nextInt(1000) + 1);
+		}
+		nums = new int[te.size()];
+		for (int i = 0; i < te.size(); i++) {
+			nums[i] = te.get(i);
+		}
+		System.err.println(handle(nums));
+		System.err.println(handle2(nums));
 	}
 }
