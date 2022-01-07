@@ -35,6 +35,7 @@ public class L91_256 {
 	 * 1 <= n <= 100
 	 * 1 <= costs[i][j] <= 20
 	 */
+
 	public static int handle(int[][] costs) {
 		/*
 		 * f(00) = min(c[00])
@@ -47,9 +48,6 @@ public class L91_256 {
 		 */
 		int[][] dp = new int[costs.length][3];
 		dp[0] = costs[0];
-//		dp[0][0] = costs[0][0];
-//		dp[0][1] = costs[0][1];
-//		dp[0][2] = costs[0][2];
 		for (int i = 1; i < costs.length; i++) {
 			dp[i][0] = Math.min(dp[i - 1][1] + costs[i][0], dp[i - 1][2] + costs[i][0]);
 			dp[i][1] = Math.min(dp[i - 1][0] + costs[i][1], dp[i - 1][2] + costs[i][1]);
@@ -60,13 +58,31 @@ public class L91_256 {
 		return max;
 	}
 
+	public static int handle2(int[][] cost) {
+		int a = cost[0][0];
+		int b = cost[0][1];
+		int c = cost[0][2];
+		for (int i = 1; i < cost.length; i++) {
+			int at = a;
+			int bt = b;
+			int ct = c;
+			a = Math.min(bt + cost[i][0], ct + cost[i][0]);
+			b = Math.min(at + cost[i][1], ct + cost[i][1]);
+			c = Math.min(at + cost[i][2], bt + cost[i][2]);
+		}
+		int max = Math.min(a, b);
+		return Math.min(max, c);
+	}
+
 
 	public static void main(String[] args) {
 		int[][] co;
 		co = new int[][]{{1, 2, 3}, {3, 2, 1}, {4, 5, 6}};
 		System.err.println(handle(co));
+		System.err.println(handle2(co));
 		co = new int[][]{{17, 2, 17}, {16, 16, 5}, {14, 3, 19}};
 		System.err.println(handle(co));
+		System.err.println(handle2(co));
 
 	}
 }
