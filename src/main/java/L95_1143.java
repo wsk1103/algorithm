@@ -42,6 +42,7 @@ public class L95_1143 {
 	 *
 	 * 1 <= text1.length, text2.length <= 1000
 	 * text1 和 text2 仅由小写英文字符组成。
+	 * 动态规划
 	 */
 
 	@Deprecated
@@ -115,6 +116,14 @@ public class L95_1143 {
 		return g[l1 - 1][l2 - 1];
 	}
 
+	/**
+	 * f(i, j) i表示 text1的第i个字符串，j表示text2的第j个字符串
+	 * if text1(i) == text(j)，则 f(i, j) = f(i - 1, j - 1) + 1
+	 * else f(i, j) = max(f(i, j - 1), f(i - 1, j))
+	 * @param text1
+	 * @param text2
+	 * @return
+	 */
 	public static int handle3(String text1, String text2) {
 		int l1 = text1.length();
 		int l2 = text2.length();
@@ -137,14 +146,53 @@ public class L95_1143 {
 		return dp[l1][l2];
 	}
 
+	public static int handle4(String text1, String text2) {
+		int l1 = text1.length();
+		int l2 = text2.length();
+		if (l1 == 0 || l2 == 0) {
+			return 0;
+		}
+		if (text1.equals(text2)) {
+			return l1;
+		}
+		int[][] dp = new int[l1][l2];
+		for (int i = 0; i < l1; i++) {
+			char c1 = text1.charAt(i);
+			for (int j = 0; j < l2; j++) {
+				char c2 = text2.charAt(j);
+				if (c1 == c2) {
+					if (i == 0 || j == 0) {
+						dp[i][j] = 1;
+					} else {
+						dp[i][j] = dp[i - 1][j - 1] + 1;
+					}
+				} else {
+					if (j == 0 && i == 0) {
+						dp[i][j] = 0;
+
+					} else if (j == 0) {
+						dp[i][j] =dp[i - 1][j];
+					} else if (i == 0) {
+						dp[i][j] = dp[i][j - 1];
+					} else {
+						dp[i][j] = Math.max(dp[i][j - 1], dp[i - 1][j]);
+					}
+				}
+			}
+		}
+
+		return dp[l1 - 1][l2 - 1];
+	}
+
 	public static void main(String[] args) {
 		String s1;
 		String s2;
 		Random random = new Random();
 		s1 = RandomStringUtils.randomAlphabetic(random.nextInt(999) + 1).toLowerCase();
 		s2 = RandomStringUtils.randomAlphabetic(random.nextInt(999) + 1).toLowerCase();
-		System.err.println(handle2(s1, s2));
+//		System.err.println(handle2(s1, s2));
 		System.err.println(handle3(s1, s2));
+		System.err.println(handle4(s1, s2));
 //		s2 = "xgsvmbqcsaiyydcusbjemjdacbuwjdbtglkcnxtnrxawrtwcrztsdfclwpwutboeshhptuizxciwjkeyizrclceanjoyznmhfuftwskrfsqwulimzvoizobsiqnlvdnsifnjzeurqojirivceztdzkicudrclygqjbteehkqeqwlktcqoxiqtxhunfuhrhvuuwuqcgzgbjyldwwyhnywpllzepqzrhtsjfssaabexedmiacnpswhgctbejqzgfoeywyngnhlsfkgslykufiddcyizpdprxjzeleonuhpdglqbhvemhlxjjucbqdosdrslolrvwabikdaivqfezotyttdfbsfhpxfohdfpldfrikkmqetgvuqsxmfvedudvwcaf";
 //		s1 = "wkkfjxicpzmfeohmpqaywqsfoojceikpofygysqzlpwgvbmfemsgghpvvvfslwmlvgp";
 //		System.err.println(handle3(s1, s2));
