@@ -1,7 +1,5 @@
 import org.apache.commons.lang.RandomStringUtils;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -44,46 +42,6 @@ public class L95_1143 {
 	 * text1 和 text2 仅由小写英文字符组成。
 	 * 动态规划
 	 */
-
-	@Deprecated
-	public static int handle(String text1, String text2) {
-		int l1 = text1.length();
-		int l2 = text2.length();
-		if (l1 == 0 || l2 == 0) {
-			return 0;
-		}
-		List<int[]> list1 = new ArrayList<>();
-		for (int i = 0; i < l1; i++) {
-			for (int j = 0; j < l2; j++) {
-				if (text1.charAt(i) == text2.charAt(j)) {
-					int[] in = new int[2];
-					in[0] = i;
-					in[1] = j;
-					list1.add(in);
-				}
-			}
-		}
-		//0-0
-		//0-3
-		//2-2
-		//4-1
-//		Map<Integer, String> map = new HashMap<>();
-		int size = 0;
-		for (int i = 0; i < list1.size() - size; i++) {
-			int temp = 0;
-			for (int j = i + 1; j < list1.size(); j++) {
-				int[] in1 = list1.get(j - 1);
-				int[] in2 = list1.get(j);
-				if (in1[0] < in2[0] && in1[1] < in2[1]) {
-					temp++;
-					size = Math.max(temp, size);
-//					String ss = map.getOrDefault(i, "");
-//					map.put(i, ss + i + "-" + j + ",");
-				}
-			}
-		}
-		return size == 0 ? 0 : size + 1;
-	}
 
 	@Deprecated
 	public static int handle2(String text1, String text2) {
