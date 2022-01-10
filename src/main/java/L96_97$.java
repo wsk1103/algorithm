@@ -3,7 +3,7 @@
  * @time 2021/11/29
  * @desc say
  **/
-public class L96_97 {
+public class L96_97$ {
 
     /*
      * 给定三个字符串 s1、s2、s3，请判断 s3 能不能由 s1 和 s2 交织（交错） 组成。
@@ -96,23 +96,22 @@ public class L96_97 {
             return false;
         }
         boolean[][] dp = new boolean[l1][l2];
-        dp[0][0] = true;
         for (int i = 0; i < l1; i++) {
             for (int j = 0; j < l2; j++) {
                 boolean is1 = s1.charAt(i) == s3.charAt(i + j);
                 if (is1) {
                     if (i == 0) {
                         dp[i][j] = true;
-                    } else {
-                        dp[i][j] |= dp[i - 1][j];
+                    } else if (dp[i - 1][j]){
+                        dp[i][j] = true;
                     }
                 }
                 boolean is2 = s2.charAt(j) == s3.charAt(i + j);
                 if (is2) {
                     if (j == 0) {
                         dp[i][j] = true;
-                    } else {
-                        dp[i][j] |= dp[i][j - 1];
+                    } else if (dp[i][j - 1]){
+                        dp[i][j] = true;
                     }
                 }
                 // 除以上两种情况外，dp[i][j]为false
