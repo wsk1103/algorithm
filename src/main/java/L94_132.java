@@ -111,8 +111,10 @@ public class L94_132 {
 				// 首尾相等
 				boolean isStartEqualEnd = s.charAt(i) == s.charAt(j);
 				// j + 1 > i - 1 = 最后一个j
+				// 或
 				// dp[j + 1][i - 1] ：j - i 中，区间[j + 1][i - 1]是否为回文串
 				boolean isMid = (j + 1 > i - 1 || dp[j + 1][i - 1]);
+				// 头 = 尾，并且中间是回文串
 				if (isStartEqualEnd && isMid) {
 					dp[j][i] = true;
 					//如果 j = 0，表示整行都是回文串
