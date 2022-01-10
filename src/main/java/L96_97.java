@@ -87,18 +87,55 @@ public class L96_97 {
         return dp[l1][l2];
     }
 
+    @Deprecated
+    public static boolean handle2(String s1, String s2, String s3) {
+        int l1 = s1.length();
+        int l2 = s2.length();
+        int l3 = s3.length();
+        if (l1 + l2 != l3) {
+            return false;
+        }
+        boolean[][] dp = new boolean[l1][l2];
+        dp[0][0] = true;
+        for (int i = 0; i < l1; i++) {
+            for (int j = 0; j < l2; j++) {
+                boolean is1 = s1.charAt(i) == s3.charAt(i + j);
+                if (is1) {
+                    if (i == 0) {
+                        dp[i][j] = true;
+                    } else {
+                        dp[i][j] |= dp[i - 1][j];
+                    }
+                }
+                boolean is2 = s2.charAt(j) == s3.charAt(i + j);
+                if (is2) {
+                    if (j == 0) {
+                        dp[i][j] = true;
+                    } else {
+                        dp[i][j] |= dp[i][j - 1];
+                    }
+                }
+                // 除以上两种情况外，dp[i][j]为false
+            }
+        }
+        return dp[l1 - 1][l2 - 1];
+    }
+
     public static void main(String[] args) {
         String s1;
         String s2;
         String s3;
-        s1 = "aabcc";
-        s2 = "dbbca";
-        s3 = "aadbbbaccc";
-		System.err.println(handle(s1, s2, s3));
+//        s1 = "aabcc";
+//        s2 = "dbbca";
+//        s3 = "aadbbbaccc";
+//		System.err.println(handle(s1, s2, s3));
+//		System.err.println(handle2(s1, s2, s3));
         s1 = "aabcc";
         s2 = "dbbca";
         s3 = "aadbbcbcac";
+        // aa, db, bc, bc, a, c
         System.err.println(handle(s1, s2, s3));
+        System.err.println(handle2(s1, s2, s3));
     }
 
 
