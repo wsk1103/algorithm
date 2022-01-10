@@ -35,7 +35,7 @@ public class L94_132 {
 	 * s 仅由小写英文字母组成
 	 */
 
-	/*
+	/**
 	 * 1. 动态规划：
 	 * 定义 f[len] 为将 [1,i] 这一段字符分割为若干回文串的最小分割次数，那么最终答案为 f[len]。
 	 * 状态转移：
@@ -105,10 +105,17 @@ public class L94_132 {
 		int[] to = new int[n];
 		boolean[][] dp = new boolean[n][n];
 		for (int i = 0; i < n; i++) {
+			//默认全部都要翻
 			int min = i;
 			for (int j = 0; j <= i; j++) {
-				if (s.charAt(i) == s.charAt(j) && (j + 1 > i - 1 || dp[j + 1][i - 1])) {
+				// 首尾相等
+				boolean isStartEqualEnd = s.charAt(i) == s.charAt(j);
+				// j + 1 > i - 1 = 最后一个j
+				// dp[j + 1][i - 1] ：j - i 中，区间[j + 1][i - 1]是否为回文串
+				boolean isMid = (j + 1 > i - 1 || dp[j + 1][i - 1]);
+				if (isStartEqualEnd && isMid) {
 					dp[j][i] = true;
+					//如果 j = 0，表示整行都是回文串
 					min = j == 0 ? 0 : Math.min(min, to[j - 1] + 1);
 				}
 			}
