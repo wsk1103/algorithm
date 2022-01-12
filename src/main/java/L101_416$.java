@@ -5,7 +5,7 @@
  * @time 2021/11/30
  * @desc say
  **/
-public class L101_416 {
+public class L101_416$ {
 
 	/*
 	 * 给定一个非空的正整数数组 nums ，请判断能否将这些数字分成元素和相等的两部分。
