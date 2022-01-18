@@ -1,5 +1,3 @@
-
-
 /**
  * @author sk
  * @time 2021/11/30
@@ -57,6 +55,9 @@ public class L101_416$ {
 			return false;
 		}
 		int target = sum / 2;
+		System.err.println(
+				target
+		);
 		boolean[][] dp = new boolean[len][target + 1];
 		for (int i = 0; i < len; i++) {
 			dp[i][0] = true;
@@ -111,8 +112,10 @@ public class L101_416$ {
 		System.err.println(handle(nu));
 		System.err.println(handle2(nu));
 		nu = new int[]{1,2,3,5};
+		System.err.println(handle(nu));
 		System.err.println(handle2(nu));
 		nu = new int[]{5, 1, 2, 3, 2, 6, 4, 5};
+		System.err.println(handle(nu));
 		System.err.println(handle2(nu));
 	}
 
