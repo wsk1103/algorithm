@@ -51,18 +51,16 @@ public class L2 {
 
     public static ListNode handle(ListNode l1, ListNode l2) {
         boolean isAdd = false;
-        ListNode t1 = l1;
-        ListNode t2 = l2;
         ListNode list = new ListNode();
         ListNode temp = list;
         boolean isFirst = true;
-        while (t1 != null && t2 != null) {
-            int a = t1.val;
-            int b = t2.val;
+        while (l1 != null && l2 != null) {
+            int a = l1.val;
+            int b = l2.val;
             int sum = a + b + (isAdd ? 1 : 0);
             isAdd = sum / 10 != 0;
-            t1 = t1.next;
-            t2 = t2.next;
+            l1 = l1.next;
+            l2 = l2.next;
             if (isFirst) {
                 list.val = sum % 10;
                 isFirst = false;
@@ -73,19 +71,19 @@ public class L2 {
                 temp = te;
             }
         }
-        while (t1 != null) {
-            int sum = t1.val + (isAdd ? 1 : 0);
+        while (l1 != null) {
+            int sum = l1.val + (isAdd ? 1 : 0);
             isAdd = sum / 10 != 0;
-            t1 = t1.next;
+            l1 = l1.next;
             ListNode te = new ListNode();
             te.val = sum % 10;
             temp.next = te;
             temp = te;
         }
-        while (t2 != null) {
-            int sum = t2.val + (isAdd ? 1 : 0);
+        while (l2 != null) {
+            int sum = l2.val + (isAdd ? 1 : 0);
             isAdd = sum / 10 != 0;
-            t2 = t2.next;
+            l2 = l2.next;
             ListNode te = new ListNode();
             te.val = sum % 10;
             temp.next = te;
