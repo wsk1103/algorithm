@@ -63,6 +63,7 @@ public class L3_338 {
     public static int[] handle(int n) {
         int[] to = new int[n + 1];
         for (int i = 1; i < n + 1; i++) {
+            // i & 1 = 1(奇数) or 0(偶数)
             to[i] = to[i >> 1] + (i & 1);
         }
         return to;
