@@ -89,6 +89,41 @@ public class L2_67 {
         return to.toString();
     }
 
+    public static String handle3(String a, String b) {
+        char[] ca = a.toCharArray();
+        char[] cb = b.toCharArray();
+        int la = ca.length - 1;
+        int lb = cb.length - 1;
+        String to = "";
+        boolean isAdd = false;
+        while (la >= 0 && lb >= 0) {
+            int ia = ca[la--] - '0';
+            int ib = cb[lb--] - '0';
+            int sum = ia + ib + (isAdd ? 1 : 0);
+            isAdd = sum / 2 > 0;
+            to = sum % 2 + to;
+        }
+
+        while (la >= 0) {
+            int ia = ca[la--] - '0';
+            int sum = ia + (isAdd ? 1 : 0);
+            isAdd = sum / 2 > 0;
+            to = sum % 2 + to;
+        }
+
+        while (lb >= 0) {
+            int ib = cb[lb--] - '0';
+            int sum = ib + (isAdd ? 1 : 0);
+            isAdd = sum / 2 > 0;
+            to = sum % 2 + to;
+        }
+
+        if (isAdd) {
+            to = "1" + to;
+        }
+        return to;
+    }
+
     @Deprecated
     /**
      * 越界
@@ -102,26 +137,36 @@ public class L2_67 {
 
     public static void main(String[] args) {
         String a, b;
+        a = "1";
+        b = "111";
+        System.err.println(handle(a, b));
+        System.err.println(handle2(a, b));
+        System.err.println(handle3(a, b));
         a = "100";
         b = "101";
         System.err.println(handle(a, b));
         System.err.println(handle2(a, b));
+        System.err.println(handle3(a, b));
         a = "1001";
         b = "101";
         System.err.println(handle(a, b));
         System.err.println(handle2(a, b));
+        System.err.println(handle3(a, b));
         a = "100";
         b = "1011";
         System.err.println(handle(a, b));
         System.err.println(handle2(a, b));
+        System.err.println(handle3(a, b));
         a = "0";
         b = "0";
         System.err.println(handle(a, b));
         System.err.println(handle2(a, b));
+        System.err.println(handle3(a, b));
         a = "0";
         b = "1";
         System.err.println(handle(a, b));
         System.err.println(handle2(a, b));
+        System.err.println(handle3(a, b));
     }
 
 }
