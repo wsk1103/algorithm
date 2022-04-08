@@ -1,3 +1,5 @@
+import java.util.List;
+
 /**
  * @author sk
  * @time 2021/10/27
@@ -8,6 +10,7 @@ public class Node {
     public Node prev;
     public Node next;
     public Node child;
+    List<Node> children;
 
     @Override
     public String toString() {
