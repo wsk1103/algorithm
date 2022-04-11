@@ -105,24 +105,63 @@ public class L26 {
         return left;
     }
 
+    /**
+     * 解答成功:
+     * 执行耗时:0 ms,击败了100.00% 的Java用户
+     * 内存消耗:42.8 MB,击败了56.93% 的Java用户
+     *
+     * @param nums
+     * @return
+     */
+    public static int handle2(int[] nums) {
+        if (nums.length == 0) {
+            return 0;
+        } else if (nums.length == 1) {
+            return 1;
+        }
+        int left = 1;
+        int right = 1;
+        int len = nums.length;
+        while (right < len) {
+            if (nums[right] != nums[right - 1]) {
+                nums[left] = nums[right];
+                left++;
+            }
+            right++;
+        }
+        System.err.println(JSONUtil.toJsonStr(nums));
+        return left;
+    }
+
 
     public static void main(String[] args) {
         int[] nums;
         nums = new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
         System.err.println(handle(nums));
+        nums = new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+        System.err.println(handle2(nums));
         nums = new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4, 5, 5};
         System.err.println(handle(nums));
+        nums = new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4, 5, 5};
+        System.err.println(handle2(nums));
         nums = new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4, 5, 5, 6, 7, 8, 9, 9, 9, 9};
         System.err.println(handle(nums));
+        nums = new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4, 5, 5, 6, 7, 8, 9, 9, 9, 9};
+        System.err.println(handle2(nums));
         nums = new int[]{0, 0};
         System.err.println(handle(nums));
+        System.err.println(handle2(nums));
         nums = new int[]{0, 0, 0};
         System.err.println(handle(nums));
+        System.err.println(handle2(nums));
         nums = new int[]{0, 1};
         System.err.println(handle(nums));
+        System.err.println(handle2(nums));
         nums = new int[]{0, 1, 2};
         System.err.println(handle(nums));
+        System.err.println(handle2(nums));
         nums = new int[]{0, 1, 2, 3};
         System.err.println(handle(nums));
+        System.err.println(handle2(nums));
     }
 }
