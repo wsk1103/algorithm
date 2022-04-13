@@ -86,10 +86,8 @@ public class L380 {
                 int temp = list.get(list.size() - 1);
                 map.put(temp, i);
                 list.set(i, temp);
-                int last = list.remove(list.size() - 1);
-            } else {
-                int last = list.remove(list.size() - 1);
             }
+            int last = list.remove(list.size() - 1);
 
             map.remove(val);
             return true;
