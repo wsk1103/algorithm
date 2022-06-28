@@ -46,6 +46,12 @@ public class L324 {
      * // Related Topics 数组 分治 快速选择 排序 👍 425 👎 0
      */
 
+    /**
+     * 执行耗时:3 ms,击败了72.42% 的Java用户
+     * 内存消耗:45.1 MB,击败了45.22% 的Java用户
+     *
+     * @param nums
+     */
     public static void handle(int[] nums) {
 
         if (nums.length == 1) {
@@ -53,8 +59,7 @@ public class L324 {
         }
         Arrays.sort(nums);
         int[] re = new int[nums.length];
-        int mid = re.length >> 1;
-        int start = mid;
+        int start = re.length >> 1;
         if ((nums.length & 1) == 0) {
             start = start - 1;
         }
@@ -69,7 +74,7 @@ public class L324 {
             re[i] = nums[end--];
             i += 2;
         }
-        nums = re;
+        System.arraycopy(re, 0, nums, 0, nums.length);
         System.err.println(JSONUtil.toJsonStr(nums));
     }
 
