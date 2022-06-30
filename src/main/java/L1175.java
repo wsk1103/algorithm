@@ -1,0 +1,87 @@
+/**
+ * @author sk
+ * @time 2022/6/30
+ **/
+public class L1175 {
+
+    /*
+     * //请你帮忙给从 1 到 n 的数设计排列方案，使得所有的「质数」都应该被放在「质数索引」（索引从 1 开始）上；你需要返回可能的方案总数。
+     * //
+     * // 让我们一起来回顾一下「质数」：质数一定是大于 1 的，并且不能用两个小于它的正整数的乘积来表示。
+     * //
+     * // 由于答案可能会很大，所以请你返回答案 模 mod 10^9 + 7 之后的结果即可。
+     * //
+     * //
+     * //
+     * // 示例 1：
+     * //
+     * // 输入：n = 5
+     * //输出：12
+     * //解释：举个例子，[1,2,5,4,3] 是一个有效的排列，但 [5,2,3,4,1] 不是，因为在第二种情况里质数 5 被错误地放在索引为 1 的位置上。
+     * //
+     * //
+     * // 示例 2：
+     * //
+     * // 输入：n = 100
+     * //输出：682289015
+     * //
+     * //
+     * //
+     * //
+     * // 提示：
+     * //
+     * //
+     * // 1 <= n <= 100
+     * //
+     * // Related Topics 数学 👍 80 👎 0
+     */
+
+    private static final int mod = 1000000000 + 7;
+
+    /**
+     * 执行耗时:0 ms,击败了100.00% 的Java用户
+     * 内存消耗:38.7 MB,击败了5.28% 的Java用户
+     *
+     * @param n
+     * @return
+     */
+    public static int handle(int n) {
+        int a = 0;
+        for (int i = 2; i <= n; i++) {
+            if (!is(i)) {
+                a++;
+            }
+        }
+        int b = n - a;
+        return (int) (cal(a) % mod * cal(b) % mod);
+    }
+
+    public static long cal(int n) {
+        long res = 1;
+        for (int i = 2; i <= n; i++) {
+            res = res * i % mod;
+        }
+        return res;
+    }
+
+    public static boolean is(int n) {
+        int mid = n >> 1;
+        for (int i = 2; i <= mid; i++) {
+            if (n % i == 0) {
+                return true;
+            }
+        }
+        System.err.print(n + ", ");
+        return false;
+    }
+
+    public static int handle2(int n) {
+        return 0;
+    }
+
+    public static void main(String[] args) {
+        //System.err.println(handle(5));
+        System.err.println(handle(100));
+    }
+
+}
