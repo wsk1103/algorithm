@@ -56,7 +56,7 @@ public class L73 {
 
     /**
      * 执行耗时:1 ms,击败了37.01% 的Java用户
-     * 内存消耗:43.2 MB,击败了18.24% 的Java用户
+     * 内存消耗:43 MB,击败了40.90% 的Java用户
      *
      * @param matrix
      */
@@ -79,10 +79,14 @@ public class L73 {
             int m = integer[0];
             int n = integer[1];
             for (int i = 0; i < a; i++) {
-                matrix[i][n] = 0;
+                if (matrix[i][n] != 0) {
+                    matrix[i][n] = 0;
+                }
             }
             for (int i = 0; i < b; i++) {
-                matrix[m][i] = 0;
+                if (matrix[m][i] != 0) {
+                    matrix[m][i] = 0;
+                }
             }
         }
     }
