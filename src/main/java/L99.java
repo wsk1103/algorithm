@@ -43,9 +43,8 @@ public class L99 {
      */
 
     /**
-     * 解答成功:
      * 执行耗时:2 ms,击败了40.71% 的Java用户
-     * 内存消耗:41.6 MB,击败了40.35% 的Java用户
+     * 内存消耗:41.1 MB,击败了96.07% 的Java用户
      *
      * @param root
      */
@@ -99,12 +98,47 @@ public class L99 {
         return res;
     }
 
+    @Deprecated
+    public static void handle2(TreeNode root) {
+        System.err.println(TreeNodeUtil.toTreeString(root));
+        TreeNode[] nodes = new TreeNode[2];
+        mid(root, root.left == null ? root.right : root.left, nodes, true);
+        TreeNode one = nodes[0];
+        TreeNode tow = nodes[1];
+        int temp = one.val;
+        one.val = tow.val;
+        tow.val = temp;
+        System.err.println(TreeNodeUtil.toTreeString(root));
+    }
+
+    private static void mid(TreeNode node, TreeNode last, TreeNode[] nodes, boolean isFirst) {
+        if (node == null) {
+            return;
+        }
+        mid(node.left, last, nodes, isFirst);
+        if (node.val < last.val) {
+            if (isFirst) {
+                nodes[0] = last;
+                nodes[1] = node;
+                isFirst = false;
+            } else {
+                nodes[1] = node;
+            }
+        }
+        mid(node.right, node, nodes, isFirst);
+    }
+
     public static void main(String[] args) {
         String s;
+        s = "2,null,1";
+        handle(TreeNodeUtil.toTreeString(s));
+        handle2(TreeNodeUtil.toTreeString(s));
         s = "1,3,null,null,2";
         handle(TreeNodeUtil.toTreeString(s));
+        handle2(TreeNodeUtil.toTreeString(s));
         s = "3,1,4,null,null,2";
         handle(TreeNodeUtil.toTreeString(s));
+        handle2(TreeNodeUtil.toTreeString(s));
     }
 
 }

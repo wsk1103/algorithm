@@ -25,12 +25,12 @@ public class TreeNodeUtil {
                 continue;
             }
             TreeNode leftNode, rightNode;
-            if (left < 0 || left > nodes.length) {
+            if (left < 0 || left >= nodes.length) {
                 leftNode = null;
             } else {
                 leftNode = nodes[left];
             }
-            if (right < 0 || right > nodes.length) {
+            if (right < 0 || right >= nodes.length) {
                 rightNode = null;
             } else {
                 rightNode = nodes[right];
