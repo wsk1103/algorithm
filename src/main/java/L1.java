@@ -56,6 +56,12 @@ public class L1 {
 	 // Related Topics 数组 哈希表 👍 13970 👎 0
 	 */
 
+	/**
+	 *
+	 * @param nums
+	 * @param target
+	 * @return
+	 */
 	public static int[] handle(int[] nums, int target) {
 		// 使用 map 存储差值，如果存在，返回，不存在返回旧
 		// 相当于空间换时间的做法
