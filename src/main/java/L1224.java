@@ -139,7 +139,6 @@ public class L1224 {
         return max;
     }
 
-    @Deprecated
     public static int handle2(int[] nums) {
         if (nums.length == 1) {
             return 1;
@@ -170,7 +169,6 @@ public class L1224 {
         }
 
         for (int i = 2; i < nums.length; i++) {
-            other++;
             int cur = nums[i];
             Integer temp = map.get(cur);
             if (temp == null) {
@@ -178,11 +176,12 @@ public class L1224 {
             } else {
                 temp++;
             }
+            other++;
             map.put(cur, temp);
             if (temp > one) {
                 oneMap.remove(cur);
                 if (!oneMap.isEmpty()) {
-                    other += twoMap.size() * (two - 1);
+                    other += twoMap.size();
                     two = one;
                     twoMap = oneMap;
                 }
@@ -200,7 +199,7 @@ public class L1224 {
                 other--;
             } else if (temp > two) {
                 twoMap.remove(cur);
-                other += twoMap.size() * (two - 1);
+                other += twoMap.size();
                 two = temp;
                 Set<Integer> now = new HashSet<>();
                 now.add(cur);
@@ -229,7 +228,7 @@ public class L1224 {
     public static void main(String[] args) {
         int[] nums;
         //13
-        nums = new int[]{1,2,3,1,2,3,4,4,4,4,1,2,3,5,6};
+        nums = new int[]{1, 2, 3, 1, 2, 3, 4, 4, 4, 4, 1, 2, 3, 5, 6};
         System.err.println("===" + handle(nums));
         System.err.println("===" + handle2(nums));
         nums = new int[]{1, 1, 1, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 42, 97, 5, 46, 53, 100, 63, 27, 12, 83, 82, 21, 77, 58, 93, 86, 5, 72, 16, 23, 99, 88, 47, 96, 16, 26, 89, 41, 19, 40, 42, 78, 43, 29, 51, 50, 92, 76, 76, 54, 7, 46, 93, 26, 56, 94, 34, 100, 26, 97, 60, 73, 46, 31, 26, 2, 50, 15, 55, 42, 64, 30, 72, 18, 8, 58, 50, 81, 84, 60, 91, 2, 3, 48, 65, 65, 5, 49, 31, 9, 78, 94, 32, 11, 33, 31, 53, 19, 92, 14, 94, 27, 65, 92, 14};
@@ -241,7 +240,7 @@ public class L1224 {
         nums = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5};
         System.err.println("===" + handle(nums));
         System.err.println("===" + handle2(nums));
-        nums = new int[]{2,2,1,1,5,3,3,5};
+        nums = new int[]{2, 2, 1, 1, 5, 3, 3, 5};
         System.err.println("===" + handle(nums));
         System.err.println("===" + handle2(nums));
         nums = new int[100];
