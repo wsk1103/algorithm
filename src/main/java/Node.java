@@ -14,6 +14,7 @@ public class Node {
     public Node right;
     public List<Node> children;
     public List<Node> neighbors;
+    public Node random;
 
     @Override
     public String toString() {
