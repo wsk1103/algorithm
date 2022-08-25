@@ -97,34 +97,68 @@ public class L134 {
     }
 
     /**
-     * 1、如果total_gas >= total_cost，那么必定存在至少一个起点。那么，只要不断排除不可能的点，最后得到的一定是正确的点
-     * 2、在上一次重置的时候，既然能作为起始点x，那么，gas[x] - cost[x]必然大于0，那么在新的重置点之前的一个点y，
-     * （curr_tank<0,说明任意一个点出发，到达加油站的curr_tank也会小于0）。假定数组长度有0到m（0 1 2 3 ··· m），
-     * 0作为第一个起始点，那么gas[0] > cost [m]，而，能到m才出现currt_tank小于0，此时：gas[0:m] < cost[0:m]，gas[0:i] > cost[0:i](0 < i < m)
-     * 为了满足上述2个等式，必须满足：gas[i:m] < cost，因此说，任意一个点出发，到达新加油站的curr_tank也会小于0，
-     * 所以之前的可以舍去，进行优化。连续的多个站也可以等效地看做一个站，如果其累积收益小于0，就跳过，寻找下一个。
+     * 贪心。
+     * <p>
+     * 一个结论：总加油量 >= 总耗油量 一定有解。
+     * <p>
+     * 假设从 0 开始，累加每个站剩余油量 rest += gas - cost ，如果到达 i 时 rest < 0 ，说明 [0,i] 都不能作为起点（法一中已证明），从 i + 1 开始；
+     * <p>
+     * 如果到达 j 时 rest < 0 ，说明 [i + 1, j] 都不能作为起点，从 j + 1 开始；
+     * <p>
+     * 这个过程不可能一直持续下去，因为 总加油量 >= 总耗油量，所以一定有一段能够补齐前面缺少的油量。
      * <p>
      * 执行耗时:2 ms,击败了77.60% 的Java用户
-     * 内存消耗:61 MB,击败了61.81% 的Java用户
+     * 内存消耗:60.9 MB,击败了63.52% 的Java用户
      *
      * @param gas
      * @param cost
      * @return
      */
     public static int handle2(int[] gas, int[] cost) {
+        int rest = 0, sum = 0;
+        int st = 0;
         int len = gas.length;
-        int totalTank = 0;
-        int curTank = 0;
-        int start = 0;
-        for (int i = 0; i < len; i++) {
-            totalTank += gas[i] - cost[i];
-            curTank += gas[i] - cost[i];
-            if (curTank < 0) {
-                start = i + 1;
-                curTank = 0;
+        for (int i = 0; i < len; ++i) {
+            rest += gas[i] - cost[i];
+            sum += gas[i] - cost[i];
+            if (sum < 0) {
+                sum = 0;
+                st = i + 1;
             }
         }
-        return totalTank >= 0 ? start : -1;
+        return rest >= 0 ? st : -1;
+    }
+
+    /**
+     * 执行耗时:5 ms,击败了10.16% 的Java用户
+     * 内存消耗:60.9 MB,击败了73.80% 的Java用户
+     *
+     * @param gas
+     * @param cost
+     * @return
+     */
+    public static int handle3(int[] gas, int[] cost) {
+        int n = gas.length;
+        int rest;
+        for (int i = 0, j; i < n; ++i) {
+            if (gas[i] < cost[i]) {
+                continue;
+            }
+            j = i;
+            rest = gas[i];
+            while (rest >= cost[j]) {
+                rest += gas[(j + 1) % n] - cost[j];
+                j = (j + 1) % n;
+                if (j == i) {
+                    return i;
+                }
+            }
+            if (j < i) {
+                return -1;
+            }
+            i = j;
+        }
+        return -1;
     }
 
     public static void main(String[] args) {
@@ -134,10 +168,12 @@ public class L134 {
         c = new int[]{3, 4, 5, 1, 2};
         System.err.println(handle(g, c));
         System.err.println(handle2(g, c));
+        System.err.println(handle3(g, c));
         g = new int[]{2, 3, 4};
         c = new int[]{3, 4, 3};
         System.err.println(handle(g, c));
         System.err.println(handle2(g, c));
+        System.err.println(handle3(g, c));
         Random r = new Random();
         g = new int[100];
         c = new int[100];
@@ -147,6 +183,7 @@ public class L134 {
         }
         System.err.println(handle(g, c));
         System.err.println(handle2(g, c));
+        System.err.println(handle3(g, c));
 
     }
 
