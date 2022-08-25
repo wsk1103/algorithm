@@ -12,7 +12,8 @@ public class Node {
     public Node child;
     public Node left;
     public Node right;
-    List<Node> children;
+    public List<Node> children;
+    public List<Node> neighbors;
 
     @Override
     public String toString() {
