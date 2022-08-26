@@ -84,20 +84,46 @@ public class L169 {
         return nums[nums.length / 2];
     }
 
+    /**
+     * 执行耗时:1 ms,击败了99.98% 的Java用户
+     * 内存消耗:44.7 MB,击败了78.19% 的Java用户
+     *
+     * @param nums
+     * @return
+     */
+    public static int handle3(int[] nums) {
+        int count = 1;
+        int it = nums[0];
+        int len = nums.length;
+        for (int i = 1; i < len; i++) {
+            int now = nums[i];
+            if (now == it) {
+                count++;
+            } else {
+                count--;
+                if (count == 0) {
+                    it = now;
+                    count = 1;
+                }
+            }
+        }
+        return it;
+    }
+
     public static void main(String[] args) {
         int[] n;
         n = new int[]{3, 2, 3};
         System.err.println(handle(n));
         System.err.println(handle2(n));
+        System.err.println(handle3(n));
         n = new int[]{2, 2, 1, 1, 1, 2, 2};
         System.err.println(handle(n));
         System.err.println(handle2(n));
+        System.err.println(handle3(n));
         n = new int[]{2};
         System.err.println(handle(n));
         System.err.println(handle2(n));
-        n = new int[]{2, 1};
-        System.err.println(handle(n));
-        System.err.println(handle2(n));
+        System.err.println(handle3(n));
     }
 
 }
