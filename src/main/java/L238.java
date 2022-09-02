@@ -80,4 +80,27 @@ public class L238 {
         return to;
     }
 
+    /**
+     * 执行耗时:1 ms,击败了100.00% 的Java用户
+     * 内存消耗:49.4 MB,击败了67.64% 的Java用户
+     *
+     * @param nums
+     * @return
+     */
+    public static int[] handle2(int[] nums) {
+        int len = nums.length;
+        int[] to = new int[len];
+        to[0] = 1;
+        for (int i = 1; i < len; i++) {
+            int num = nums[i - 1];
+            to[i] = to[i - 1] * num;
+        }
+        int mul = 1;
+        for (int i = len - 1; i >= 0; i--) {
+            to[i] = to[i] * mul;
+            mul *= nums[i];
+        }
+        return to;
+    }
+
 }
