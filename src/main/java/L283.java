@@ -69,6 +69,25 @@ public class L283 {
         }
     }
 
+    /**
+     * 执行耗时:1 ms,击败了100.00% 的Java用户
+     * 内存消耗:42.7 MB,击败了69.52% 的Java用户
+     *
+     * @param nums
+     */
+    public static void handle2(int[] nums) {
+        int len = nums.length;
+        int left = 0;
+        for (int i = 0; i < len; i++) {
+            if (nums[i] != 0) {
+                nums[left++] = nums[i];
+            }
+        }
+        for (int i = left; i < len; i++) {
+            nums[i] = 0;
+        }
+    }
+
     private static void swap(int[] n, int a, int b) {
         int tmp = n[a];
         n[a] = n[b];
