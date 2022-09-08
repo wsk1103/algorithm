@@ -1,9 +1,3 @@
-import cn.hutool.json.JSONUtil;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
 /**
  * @author sk
  * @time 2022/9/8
@@ -43,48 +37,6 @@ public class L279 {
      * //
      * // Related Topics 广度优先搜索 数学 动态规划 👍 1484 👎 0
      */
-
-
-    public static int handle(int n) {
-        if (n == 1) {
-            return 1;
-        }
-        int size = n;
-        List<Integer> list = new ArrayList<>();
-        int add = 1;
-        while (add <= n) {
-            int mul = add * add;
-            if (mul > n) {
-                break;
-            }
-            list.add(mul);
-            add++;
-        }
-        int last = list.size() - 1;
-        while (last >= 0) {
-            LinkedList<Integer> link = new LinkedList<>();
-            int sum = 0;
-            for (int i = last; i >= 0; ) {
-                if (link.size() >= size) {
-                    break;
-                }
-                int cur = list.get(i);
-                sum += cur;
-                link.addLast(cur);
-                if (sum == n) {
-                    size = Math.min(link.size(), size);
-                    System.err.println(JSONUtil.toJsonStr(link));
-                    break;
-                } else if (sum > n) {
-                    sum -= cur;
-                    link.removeLast();
-                    i--;
-                }
-            }
-            last--;
-        }
-        return size;
-    }
 
     /**
      * 执行耗时:20 ms,击败了91.52% 的Java用户
@@ -156,7 +108,11 @@ public class L279 {
     public static void main(String[] args) {
         int n;
         n = 43;
-        System.err.println(handle(n));
+        // 1 4 9 16 25 36 49 64 91
+        //43 = 36 + 7 = 36 + 4 + 1 + 1 + 1
+        //43 = 25 + 18 = 25 + 9 + 9
+        //43 = 16 + 16 + 11
+//        System.err.println(handle(n));
         System.err.println(handle2(n));
         System.err.println(handle4(n));
     }
